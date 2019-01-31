@@ -4,14 +4,24 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk,Image
 
-window = Tk()
+def clicked():
+  print("button was clicked")
 
-window.title("Welcome to LikeGeeks app")
+def make_window():
+  window = Tk()
 
-button = ttk.Button(window)
-button.pack()
+  window.title("Welcome to LikeGeeks app")
 
-img = ImageTk.PhotoImage(Image.open("images/heroes.jpg"))
-button.config(image = img)
+  button = ttk.Button(window)
+  button.pack()
 
-window.mainloop()
+  img = ImageTk.PhotoImage(Image.open("images/abaddon.png"))
+  button.config(image = img, command = clicked)
+
+  window.mainloop()
+
+def main():
+  make_window()
+
+if __name__ == '__main__':
+  main()
