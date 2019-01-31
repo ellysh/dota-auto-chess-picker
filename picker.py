@@ -4,12 +4,15 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk,Image
 
-def clicked():
-  print("button was clicked")
+def abaddon_click():
+  print("abaddon_click")
 
-def add_button(window, handler, hero_name):
+def alchemist_click():
+  print("alchemist_click")
+
+def add_button(window, handler, hero_name, column, row):
   button = ttk.Button(window)
-  button.pack()
+  button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/" + hero_name + ".png"))
   button.config(image = img, command = handler)
@@ -21,7 +24,9 @@ def make_window():
 
   window.title("Welcome to LikeGeeks app")
 
-  abaddon_button, abaddon_img = add_button(window, clicked, "abaddon")
+  abaddon_button, abaddon_img = add_button(window, abaddon_click, "abaddon", 0, 0)
+
+  alchemist_button, alchemist_img = add_button(window, alchemist_click, "alchemist", 1, 0)
 
   window.mainloop()
 
