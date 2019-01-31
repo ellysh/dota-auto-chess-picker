@@ -1,17 +1,23 @@
 #!/usr/bin/env python
 
 from tkinter import *
-from tkinter import ttk
 from PIL import ImageTk,Image
 
+ABADDON_BUTTON = None
+ALCHEMIST_BUTTON = None
+
 def abaddon_click():
+  global ABADDON_BUTTON
+
+  ABADDON_BUTTON.config(bg = "green")
+
   print("abaddon_click")
 
 def alchemist_click():
   print("alchemist_click")
 
 def add_button(window, handler, hero_name, column, row):
-  button = ttk.Button(window)
+  button = Button(window)
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/" + hero_name + ".png"))
@@ -20,13 +26,15 @@ def add_button(window, handler, hero_name, column, row):
   return button, img
 
 def make_window():
+  global ABADDON_BUTTON
+
   window = Tk()
 
   window.title("Welcome to LikeGeeks app")
 
-  abaddon_button, abaddon_img = add_button(window, abaddon_click, "abaddon", 0, 0)
+  ABADDON_BUTTON, abaddon_img = add_button(window, abaddon_click, "abaddon", 0, 0)
 
-  alchemist_button, alchemist_img = add_button(window, alchemist_click, "alchemist", 1, 0)
+  ALCHEMIST_BUTTON, alchemist_img = add_button(window, alchemist_click, "alchemist", 1, 0)
 
   window.mainloop()
 
