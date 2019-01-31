@@ -5,10 +5,18 @@ from PIL import ImageTk,Image
 
 BUTTONS = {}
 
-def button_click(hero_name):
-  #global BUTTONS
+def reset_all_buttons():
+  global BUTTONS
 
-  #ABADDON_BUTTON.config(bg = "green")
+  for key, value in BUTTONS.iteritems():
+    value[0].config(bg = "gray")
+
+def button_click(hero_name):
+  global BUTTONS
+
+  reset_all_buttons()
+
+  BUTTONS[hero_name][0].config(bg = "green")
 
   print("hero_name = %s" % hero_name)
 
