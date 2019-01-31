@@ -3,6 +3,64 @@
 from tkinter import *
 from PIL import ImageTk,Image
 
+HEROES = [
+  "abaddon",
+  "alchemist",
+  "anti-mage",
+  "axe",
+  "batrider",
+  "beastmaster",
+  "bounty_hunter",
+  "chaos_knight",
+  "clockwerk",
+  "crystal_maiden",
+  "disruptor",
+  "doom",
+  "dragon_knight",
+  "drow_ranger",
+  "enchantress",
+  "enigma",
+  "gyrocopter",
+  "juggernaut",
+  "keeper_of_the_light",
+  "kunkka",
+  "lich",
+  "lina",
+  "lone_druid",
+  "luna",
+  "lycan",
+  "medusa",
+  "morphling",
+  "natures_prophet",
+  "necrophos",
+  "ogre_magi",
+  "omniknight",
+  "phantom_assassin",
+  "puck",
+  "queen_of_pain",
+  "razor",
+  "sand_king",
+  "shadow_fiend",
+  "shadow_shaman",
+  "slardar",
+  "slark",
+  "sniper",
+  "techies",
+  "templar_assassin",
+  "terrorblade",
+  "tidehunter",
+  "timbersaw",
+  "tinker",
+  "tiny",
+  "treant_protector",
+  "troll_warlord",
+  "tusk",
+  "venomancer",
+  "viper",
+  "windranger",
+  "witch_doctor",
+]
+
 BUTTONS = {}
 
 def reset_all_buttons():
@@ -20,9 +78,6 @@ def button_click(hero_name):
 
   print("hero_name = %s" % hero_name)
 
-def alchemist_click():
-  print("alchemist_click")
-
 def add_button(window, handler, hero_name, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
@@ -33,15 +88,24 @@ def add_button(window, handler, hero_name, column, row):
   return button, img
 
 def make_window():
+  global HEROES
   global BUTTONS
 
   window = Tk()
 
   window.title("Welcome to LikeGeeks app")
 
-  BUTTONS["abaddon"] = add_button(window, button_click, "abaddon", 0, 0)
+  row = 0
+  column = 0
 
-  BUTTONS["alchemist"] = add_button(window, button_click, "alchemist", 1, 0)
+  for hero in HEROES:
+    BUTTONS[hero] = add_button(window, button_click, hero, row, column)
+
+    row += 1
+
+    if 10 < row:
+      row = 0
+      column += 1
 
   window.mainloop()
 
