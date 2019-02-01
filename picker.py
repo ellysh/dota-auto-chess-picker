@@ -15,15 +15,28 @@ CLASSES = {}
 
 BUTTONS = {}
 
-def load_pieces():
-  global PIECES
-
-  with open(_PIECES_FILE) as csv_file:
+def load_table(filename, table):
+  with open(filename) as csv_file:
     csv_reader = reader(csv_file, delimiter=';')
     next(csv_file)
 
     for line in csv_reader:
-      PIECES[line[0]] = [line[1], line[2]]
+      table[line[0]] = [line[1], line[2]]
+
+def load_pieces():
+  global PIECES
+
+  load_table(_PIECES_FILE, PIECES)
+
+def load_species():
+  global SPECIES
+
+  load_table(_SPECIES_FILE, SPECIES)
+
+def load_classes():
+  global CLASSES
+
+  load_table(_CLASSES_FILE, CLASSES)
 
 def reset_all_buttons():
   global BUTTONS
@@ -75,9 +88,9 @@ def make_window():
 def main():
   load_pieces()
 
-  #load_species()
+  load_species()
 
-  #load_classes()
+  load_classes()
 
   make_window()
 
