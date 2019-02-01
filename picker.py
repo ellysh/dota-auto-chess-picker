@@ -1,69 +1,29 @@
 #!/usr/bin/env python
 
 from tkinter import *
+from csv import reader
 from PIL import ImageTk,Image
 
-VERSION = "0.1"
+_VERSION = "0.1"
+_PIECES_FILE = "database/csv/pieces.csv"
+_SPECIES_FILE = "database/csv/species.csv"
+_CLASSES_FILE = "database/csv/classes.csv"
 
-PIECES = [
-  "Abaddon",
-  "Alchemist",
-  "Anti-Mage",
-  "Axe",
-  "Bat Rider",
-  "Beast Master",
-  "Bounty Hunter",
-  "Chaos Knight",
-  "clockwerk",
-  "crystal_maiden",
-  "disruptor",
-  "doom",
-  "dragon_knight",
-  "drow_ranger",
-  "enchantress",
-  "enigma",
-  "gyrocopter",
-  "juggernaut",
-  "keeper_of_the_light",
-  "kunkka",
-  "lich",
-  "lina",
-  "lone_druid",
-  "luna",
-  "lycan",
-  "medusa",
-  "morphling",
-  "natures_prophet",
-  "necrophos",
-  "ogre_magi",
-  "omniknight",
-  "phantom_assassin",
-  "puck",
-  "queen_of_pain",
-  "razor",
-  "sand_king",
-  "shadow_fiend",
-  "shadow_shaman",
-  "slardar",
-  "slark",
-  "sniper",
-  "techies",
-  "templar_assassin",
-  "terrorblade",
-  "tidehunter",
-  "timbersaw",
-  "tinker",
-  "tiny",
-  "treant_protector",
-  "troll_warlord",
-  "tusk",
-  "venomancer",
-  "viper",
-  "windranger",
-  "witch_doctor",
-]
+PIECES = {}
+SPECIES = {}
+CLASSES = {}
 
 BUTTONS = {}
+
+def load_pieces():
+  global PIECES
+
+  with open(_PIECES_FILE) as csv_file:
+    csv_reader = reader(csv_file, delimiter=';')
+    next(csv_file)
+
+    for line in csv_reader:
+      PIECES[line[0]] = [line[1], line[2]]
 
 def reset_all_buttons():
   global BUTTONS
@@ -96,7 +56,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Picker " + VERSION)
+  window.title("Dota Auto Chess Picker " + _VERSION)
 
   row = 0
   column = 0
@@ -113,6 +73,12 @@ def make_window():
   window.mainloop()
 
 def main():
+  load_pieces()
+
+  #load_species()
+
+  #load_classes()
+
   make_window()
 
 if __name__ == '__main__':

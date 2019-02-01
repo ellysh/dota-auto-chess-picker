@@ -8,14 +8,14 @@ Axe;Orc;Warrior;1
 "Bounty Hunter";Goblin;Assassin;1
 "Chaos Knight";Demon;Knight;2
 Clockwerk;Goblin;Mech;1
-Crystal;Human;Mage;2
+"Crystal Maiden";Human;Mage;2
 Disruptor;Orc;Shaman;4
 Doom;Demon;Warrior;4
 "Dragon Knight";Human/Dragon;Knight;4
 "Drow Ranger";Undead;Hunter;1
 Enchantress;Beast;Druid;1
 Enigma;Element;Warlock;5
-Furion;Elf;Druid;2
+"Natures Prophet";Elf;Druid;2
 Gyrocopter;Dwarf;Mech;5
 Juggernaut;Orc;Warrior;2
 Kunkka;Human;Warrior;4
@@ -48,7 +48,7 @@ Timbersaw;Goblin;Mech;2
 Tinker;Goblin;Mech;1
 Tiny;Element;Warrior;1
 "Treant Protector";Elf;Druid;2
-Troll;Troll;Warrior;4
+"Troll Warlord";Troll;Warrior;4
 Tusk;Beast;Warrior;1
 Venomancer;Beast;Warlock;3
 Viper;Dragon;Assassin;3
