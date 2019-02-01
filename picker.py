@@ -6,14 +6,14 @@ from PIL import ImageTk,Image
 VERSION = "0.1"
 
 PIECES = [
-  "abaddon",
-  "alchemist",
-  "anti-mage",
-  "axe",
-  "batrider",
-  "beastmaster",
-  "bounty_hunter",
-  "chaos_knight",
+  "Abaddon",
+  "Alchemist",
+  "Anti-Mage",
+  "Axe",
+  "Bat Rider",
+  "Beast Master",
+  "Bounty Hunter",
+  "Chaos Knight",
   "clockwerk",
   "crystal_maiden",
   "disruptor",
