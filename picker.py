@@ -48,9 +48,11 @@ def highlight_species(piece_name):
   global PIECES
 
   species = PIECES[piece_name][0]
+  species_set = set(species.split())
 
   for key, value in BUTTONS.iteritems():
-    if PIECES[key][0] == species and key != piece_name:
+    if (set.intersection(set(PIECES[key][0].split()), species_set)) \
+        and key != piece_name:
       value[0].config(bg = "green")
 
 def button_click(piece_name):

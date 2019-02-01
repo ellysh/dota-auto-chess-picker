@@ -11,7 +11,7 @@ Clockwerk;Goblin;Mech;1
 "Crystal Maiden";Human;Mage;2
 Disruptor;Orc;Shaman;4
 Doom;Demon;Warrior;4
-"Dragon Knight";Human/Dragon;Knight;4
+"Dragon Knight";"Human Dragon";Knight;4
 "Drow Ranger";Undead;Hunter;1
 Enchantress;Beast;Druid;1
 Enigma;Element;Warlock;5
@@ -24,7 +24,7 @@ Lich;Undead;Mage;5
 Lina;Human;Mage;3
 "Lone Druid";Beast;Druid;4
 Luna;Elf;Knight;2
-Lycan;Human/Beast;Warrior;3
+Lycan;"Human Beast";Warrior;3
 Medusa;Naga;Hunter;4
 Morphling;Element;Assassin;2
 Necrophos;Undead;Warlock;4
@@ -32,7 +32,7 @@ Necrophos;Undead;Warlock;4
 "Omni Knight";Human;Knight;3
 "Pain Queen";Demon;Assassin;2
 "Phantom Assassin";Elf;Assassin;3
-Puck;Elf/Dragon;Mage;2
+Puck;"Elf Dragon";Mage;2
 Razor;Element;Mage;3
 "Sand King";Beast;Assassin;3
 "Shadow Fiend";Demon;Warlock;3
