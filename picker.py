@@ -71,7 +71,7 @@ def highlight_both_similarity(piece_name):
         and set.intersection(set(PIECES[key][1].split()), \
                              classes_set)) \
         and key != piece_name:
-      value[0].config(bg = "cyan")
+      value[0].config(bg = "#7742f4")
 
 def highlight_species(piece_name):
   highlight_similarity(piece_name, 0, "green")
