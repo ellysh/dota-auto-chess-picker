@@ -51,14 +51,34 @@ def highlight_similarity(piece_name, index, color):
   similarity_set = set(similarity.split())
 
   for key, value in BUTTONS.iteritems():
-    if (set.intersection(set(PIECES[key][index].split()), \
-                         similarity_set)) \
+    if set.intersection(set(PIECES[key][index].split()), \
+                        similarity_set) \
         and key != piece_name:
       value[0].config(bg = color)
 
+def highlight_both_similarity(piece_name):
+  global PIECES
+
+  species = PIECES[piece_name][0]
+  species_set = set(species.split())
+
+  classes = PIECES[piece_name][1]
+  classes_set = set(classes.split())
+
+  for key, value in BUTTONS.iteritems():
+    if (set.intersection(set(PIECES[key][0].split()), \
+                         species_set)
+        and set.intersection(set(PIECES[key][1].split()), \
+                             classes_set)) \
+        and key != piece_name:
+      value[0].config(bg = "cyan")
+
 def highlight_species(piece_name):
   highlight_similarity(piece_name, 0, "green")
+
   highlight_similarity(piece_name, 1, "blue")
+
+  highlight_both_similarity(piece_name)
 
 def button_click(piece_name):
   global BUTTONS
@@ -68,8 +88,6 @@ def button_click(piece_name):
   BUTTONS[piece_name][0].config(bg = "red")
 
   highlight_species(piece_name)
-
-  highlight_classes(piece_name)
 
 def add_button(window, handler, piece_name, column, row):
   button = Button(window)
