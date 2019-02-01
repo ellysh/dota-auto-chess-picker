@@ -3,6 +3,8 @@
 from tkinter import *
 from PIL import ImageTk,Image
 
+VERSION = "0.1"
+
 HEROES = [
   "abaddon",
   "alchemist",
@@ -88,12 +90,13 @@ def add_button(window, handler, hero_name, column, row):
   return button, img
 
 def make_window():
+  global VERSION
   global HEROES
   global BUTTONS
 
   window = Tk()
 
-  window.title("Welcome to LikeGeeks app")
+  window.title("Dota Auto Chess Picker " + VERSION)
 
   row = 0
   column = 0
