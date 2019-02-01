@@ -1,6 +1,8 @@
 Classes;Count;Bonus
 Assassin;"3, 6";"All friendly assassins have 10% / 20% chance to deal 4x damage."
-"Demon Hunter";"1, 2";"Attack damage +50% if enemy has a demon / Considered as an enemy demon / All ally demons keep their power (2)"
+Demon_Hunter;"1, 2";"Attack damage +50% if enemy has a demon
+Considered as an enemy demon
+All ally demons keep their power (2)"
 Druid;1;"two ★/★★ druids can upgrade to a ★★/★★★ druid."
 Knight;"2, 4, 6";"All friendly knights +25% / +35% / +45% chance to   get a shield."
 Hunter;"3, 6";"Attack damage increased by 25% / 35% for all friendly hunters."

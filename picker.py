@@ -13,6 +13,9 @@ PIECES = {}
 SPECIES = {}
 CLASSES = {}
 
+SPIECES_DESCRIPTION = None
+CLASS_DESCRIPTION = None
+
 BUTTONS = {}
 
 def load_table(filename, table):
@@ -82,12 +85,20 @@ def highlight_species(piece_name):
 
 def button_click(piece_name):
   global BUTTONS
+  global SPIECES_DESCRIPTION
+  global CLASS_DESCRIPTION
+  global PIECES
+  global SPECIES
+  global CLASSES
 
   reset_all_buttons()
 
   BUTTONS[piece_name][0].config(bg = "red")
 
   highlight_species(piece_name)
+
+  SPIECES_DESCRIPTION.config(text = SPECIES[PIECES[piece_name][0]])
+  CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]])
 
 def add_button(window, handler, piece_name, column, row):
   button = Button(window)
@@ -102,6 +113,8 @@ def make_window():
   global VERSION
   global PIECES
   global BUTTONS
+  global SPIECES_DESCRIPTION
+  global CLASS_DESCRIPTION
 
   window = Tk()
 
@@ -118,6 +131,24 @@ def make_window():
     if 10 < row:
       row = 0
       column += 1
+
+  color1 = Label(window, bg = "green", width = 4, height = 1)
+  color1.grid(column = 0, row = 12)
+
+  SPIECES_DESCRIPTION = Label(window)
+  SPIECES_DESCRIPTION.grid(column = 1, row = 12, columnspan = 10)
+
+  color2 = Label(window, bg = "blue", width = 4, height = 1)
+  color2.grid(column = 0, row = 13)
+
+  CLASS_DESCRIPTION = Label(window)
+  CLASS_DESCRIPTION.grid(column = 1, row = 13, columnspan = 10)
+
+  color3 = Label(window, bg = "#7742f4", width = 4, height = 1)
+  color3.grid(column = 0, row = 14)
+
+  both_description = Label(window, text = "Both pieces and class matches")
+  both_description.grid(column = 1, row = 14, columnspan = 10)
 
   window.mainloop()
 
