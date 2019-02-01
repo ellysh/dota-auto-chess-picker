@@ -1,7 +1,7 @@
 Piece;Species;Class;Level
 Abaddon;Undead;Knight;3
 Alchemist;Goblin;Warlock;4
-Anti-Mage;Elf;"Demon Hunter";1
+Anti-Mage;Elf;Demon_Hunter;1
 Axe;Orc;Warrior;1
 "Bat Rider";Troll;Knight;1
 "Beast Master";Orc;Hunter;2
@@ -42,7 +42,7 @@ Slark;Naga;Assassin;3
 Sniper;Dwarf;Hunter;3
 Techies;Goblin;Mech;5
 "Templar Assassin";Elf;Assassin;4
-Terrorblade;Demon;"Demon Hunter";3
+Terrorblade;Demon;Demon_Hunter;3
 "Tide Hunter";Naga;Hunter;5
 Timbersaw;Goblin;Mech;2
 Tinker;Goblin;Mech;1
