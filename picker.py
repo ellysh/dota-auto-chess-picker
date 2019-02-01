@@ -5,7 +5,7 @@ from PIL import ImageTk,Image
 
 VERSION = "0.1"
 
-HEROES = [
+PIECES = [
   "abaddon",
   "alchemist",
   "anti-mage",
@@ -71,27 +71,27 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = "gray")
 
-def button_click(hero_name):
+def button_click(piece_name):
   global BUTTONS
 
   reset_all_buttons()
 
-  BUTTONS[hero_name][0].config(bg = "green")
+  BUTTONS[piece_name][0].config(bg = "green")
 
-  print("hero_name = %s" % hero_name)
+  print("piece_name = %s" % piece_name)
 
-def add_button(window, handler, hero_name, column, row):
+def add_button(window, handler, piece_name, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open("images/" + hero_name + ".png"))
-  button.config(image = img, command = lambda:handler(hero_name))
+  img = ImageTk.PhotoImage(Image.open("images/" + piece_name + ".png"))
+  button.config(image = img, command = lambda:handler(piece_name))
 
   return button, img
 
 def make_window():
   global VERSION
-  global HEROES
+  global PIECES
   global BUTTONS
 
   window = Tk()
@@ -101,8 +101,8 @@ def make_window():
   row = 0
   column = 0
 
-  for hero in HEROES:
-    BUTTONS[hero] = add_button(window, button_click, hero, row, column)
+  for piece in PIECES:
+    BUTTONS[piece] = add_button(window, button_click, piece, row, column)
 
     row += 1
 
