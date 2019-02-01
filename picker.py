@@ -44,14 +44,25 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = "gray")
 
+def highlight_species(piece_name):
+  global PIECES
+
+  species = PIECES[piece_name][0]
+
+  for key, value in BUTTONS.iteritems():
+    if PIECES[key][0] == species and key != piece_name:
+      value[0].config(bg = "green")
+
 def button_click(piece_name):
   global BUTTONS
 
   reset_all_buttons()
 
-  BUTTONS[piece_name][0].config(bg = "green")
+  BUTTONS[piece_name][0].config(bg = "red")
 
   print("piece_name = %s" % piece_name)
+
+  highlight_species(piece_name)
 
 def add_button(window, handler, piece_name, column, row):
   button = Button(window)
