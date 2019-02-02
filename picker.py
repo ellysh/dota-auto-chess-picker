@@ -13,9 +13,13 @@ PIECES = {}
 SPECIES = {}
 CLASSES = {}
 
-SPECIES_DESCRIPTION = None
+SPECIES_DESCRIPTION_1 = None
+SPECIES_NUMBER_1 = None
+
+SPECIES_DESCRIPTION_2 = None
+SPECIES_NUMBER_2 = None
+
 CLASS_DESCRIPTION = None
-SPECIES_NUMBER = None
 CLASS_NUMBER = None
 
 BUTTONS = {}
@@ -72,13 +76,13 @@ def highlight_species(piece_name):
 
 def button_click(piece_name):
   global BUTTONS
-  global SPECIES_DESCRIPTION
+  global SPECIES_DESCRIPTION_1
+  global SPECIES_NUMBER_1
   global CLASS_DESCRIPTION
+  global CLASS_NUMBER
   global PIECES
   global SPECIES
   global CLASSES
-  global SPECIES_NUMBER
-  global CLASS_NUMBER
 
   reset_all_buttons()
 
@@ -87,8 +91,8 @@ def button_click(piece_name):
   highlight_species(piece_name)
 
   species = PIECES[piece_name][0].split('/')
-  SPECIES_NUMBER.config(text = SPECIES[species[0]][0])
-  SPECIES_DESCRIPTION.config(text = SPECIES[species[0]][1])
+  SPECIES_NUMBER_1.config(text = SPECIES[species[0]][0])
+  SPECIES_DESCRIPTION_1.config(text = SPECIES[species[0]][1])
 
   CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
   CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
@@ -106,9 +110,11 @@ def make_window():
   global VERSION
   global PIECES
   global BUTTONS
-  global SPECIES_DESCRIPTION
+  global SPECIES_DESCRIPTION_1
+  global SPECIES_NUMBER_1
+  global SPECIES_DESCRIPTION_2
+  global SPECIES_NUMBER_2
   global CLASS_DESCRIPTION
-  global SPECIES_NUMBER
   global CLASS_NUMBER
 
   window = Tk()
@@ -130,26 +136,35 @@ def make_window():
   color1 = Label(window, bg = "green", width = 4, height = 1)
   color1.grid(column = 0, row = 12)
 
-  SPECIES_NUMBER = Label(window, font=("Arial Bold", 12))
-  SPECIES_NUMBER.grid(column = 1, row = 12, columnspan = 2)
+  SPECIES_NUMBER_1 = Label(window, font=("Arial Bold", 12))
+  SPECIES_NUMBER_1.grid(column = 1, row = 12, columnspan = 2)
 
-  SPECIES_DESCRIPTION = Label(window, font=("Arial Bold", 12))
-  SPECIES_DESCRIPTION.grid(column = 3, row = 12, columnspan = 10)
+  SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12))
+  SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
 
-  color2 = Label(window, bg = "blue", width = 4, height = 1)
+  color2 = Label(window, bg = "green", width = 4, height = 1)
   color2.grid(column = 0, row = 13)
 
-  CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
-  CLASS_NUMBER.grid(column = 1, row = 13, columnspan = 2)
+  SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
+  SPECIES_NUMBER_2.grid(column = 1, row = 13, columnspan = 2)
 
-  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12))
-  CLASS_DESCRIPTION.grid(column = 3, row = 13, columnspan = 10)
+  SPECIES_DESCRIPTION_2 = Label(window, font=("Arial Bold", 12))
+  SPECIES_DESCRIPTION_2.grid(column = 3, row = 13, columnspan = 10)
 
-  color3 = Label(window, bg = "#7742f4", width = 4, height = 1)
+  color3 = Label(window, bg = "blue", width = 4, height = 1)
   color3.grid(column = 0, row = 14)
 
+  CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
+  CLASS_NUMBER.grid(column = 1, row = 14, columnspan = 2)
+
+  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12))
+  CLASS_DESCRIPTION.grid(column = 3, row = 14, columnspan = 10)
+
+  color4 = Label(window, bg = "#7742f4", width = 4, height = 1)
+  color4.grid(column = 0, row = 15)
+
   both_description = Label(window, text = "Both pieces and class matches", font=("Arial Bold", 12))
-  both_description.grid(column = 1, row = 14, columnspan = 10)
+  both_description.grid(column = 1, row = 15, columnspan = 10)
 
   window.mainloop()
 
