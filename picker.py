@@ -8,6 +8,7 @@ _VERSION = "0.1"
 _PIECES_FILE = "database/csv/pieces.csv"
 _SPECIES_FILE = "database/csv/species.csv"
 _CLASSES_FILE = "database/csv/classes.csv"
+_DEFAULT_COLOR = "#d9d9d9"
 
 PIECES = {}
 SPECIES = {}
@@ -51,7 +52,7 @@ def reset_all_buttons():
   global BUTTONS
 
   for key, value in BUTTONS.iteritems():
-    value[0].config(bg = "gray")
+    value[0].config(bg = _DEFAULT_COLOR)
 
 def highlight_similarity(piece_name, index, first_color, second_color):
   global PIECES
@@ -62,7 +63,7 @@ def highlight_similarity(piece_name, index, first_color, second_color):
     check_similarity_list = PIECES[key][index].split('/')
 
     if key != piece_name:
-      color = "gray"
+      color = _DEFAULT_COLOR
 
       if similarity_list[0] in check_similarity_list:
         color = first_color
@@ -70,9 +71,9 @@ def highlight_similarity(piece_name, index, first_color, second_color):
            and similarity_list[1] in check_similarity_list:
         color = second_color
 
-      if value[0].cget("bg") == "gray":
+      if value[0].cget("bg") == _DEFAULT_COLOR:
         value[0].config(bg = color)
-      elif color != "gray":
+      elif color != _DEFAULT_COLOR:
         value[0].config(bg = "#7742f4")
 
 def highlight_species(piece_name):
@@ -114,7 +115,7 @@ def button_click(piece_name):
 
 def add_button(window, handler, piece_name, column, row):
   button = Button(window)
-  button.grid(column = column, row = row, sticky=W)
+  button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/" + piece_name + ".png"))
   button.config(image = img, command = lambda:handler(piece_name))
