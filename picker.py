@@ -78,6 +78,8 @@ def button_click(piece_name):
   global BUTTONS
   global SPECIES_DESCRIPTION_1
   global SPECIES_NUMBER_1
+  global SPECIES_DESCRIPTION_2
+  global SPECIES_NUMBER_2
   global CLASS_DESCRIPTION
   global CLASS_NUMBER
   global PIECES
@@ -93,6 +95,13 @@ def button_click(piece_name):
   species = PIECES[piece_name][0].split('/')
   SPECIES_NUMBER_1.config(text = SPECIES[species[0]][0])
   SPECIES_DESCRIPTION_1.config(text = SPECIES[species[0]][1])
+
+  if 1 < len(species):
+    SPECIES_NUMBER_2.config(text = SPECIES[species[1]][0])
+    SPECIES_DESCRIPTION_2.config(text = SPECIES[species[1]][1])
+  else:
+    SPECIES_NUMBER_2.config(text = "")
+    SPECIES_DESCRIPTION_2.config(text = "")
 
   CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
   CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
