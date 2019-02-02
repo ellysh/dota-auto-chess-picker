@@ -53,26 +53,31 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = "gray")
 
-def highlight_similarity(piece_name, index, color):
+def highlight_similarity(piece_name, index, first_color, second_color):
   global PIECES
 
-  similarity = PIECES[piece_name][index]
-  similarity_set = set(similarity.split('/'))
+  similarity_list = PIECES[piece_name][index].split('/')
 
   for key, value in BUTTONS.iteritems():
-    if set.intersection(set(PIECES[key][index].split('/')), \
-                        similarity_set) \
-        and key != piece_name:
+    check_similarity_list = PIECES[key][index].split('/')
 
+    if similarity_list[0] in check_similarity_list and key != piece_name:
       if value[0].cget("bg") == "gray":
-        value[0].config(bg = color)
+        value[0].config(bg = first_color)
+      else:
+        value[0].config(bg = "#7742f4")
+
+    if 1 < len(similarity_list) and \
+       similarity_list[1] in check_similarity_list and key != piece_name:
+      if value[0].cget("bg") == "gray":
+        value[0].config(bg = second_color)
       else:
         value[0].config(bg = "#7742f4")
 
 def highlight_species(piece_name):
-  highlight_similarity(piece_name, 0, "green")
+  highlight_similarity(piece_name, 0, "green", "yellow")
 
-  highlight_similarity(piece_name, 1, "blue")
+  highlight_similarity(piece_name, 1, "blue", "black")
 
 def button_click(piece_name):
   global BUTTONS
@@ -151,7 +156,7 @@ def make_window():
   SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12))
   SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
 
-  color2 = Label(window, bg = "green", width = 4, height = 1)
+  color2 = Label(window, bg = "yellow", width = 4, height = 1)
   color2.grid(column = 0, row = 13)
 
   SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
