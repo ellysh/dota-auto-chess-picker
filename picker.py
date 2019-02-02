@@ -117,7 +117,7 @@ def add_button(window, handler, piece_name, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open("images/" + piece_name + ".png"))
+  img = ImageTk.PhotoImage(Image.open("images/pieces/" + piece_name + ".png"))
   button.config(image = img, command = lambda:handler(piece_name))
 
   return button, img
