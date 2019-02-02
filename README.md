@@ -18,23 +18,23 @@ You need two Python 2.7, Tkinter and pillow modules to launch the Dota Auto Ches
 
 These are steps to install Python and required modules on Windows:
 
-1. Download the Python 2.7 distribution:
+1. Download the Python 2.7 distribution:<br/>
 https://www.python.org/downloads/release/python-2715/
 
 2. Install Python 2.7.
 
-3. Install the pip utility with the following command in the command line:
-python get-pip.py
+3. Install the pip utility with the following command in the command line:<br/>
+`python get-pip.py`
 
-4. Install the `pillow` module:
-pip install pillow
+4. Install the `pillow` module:<br/>
+`pip install pillow`
 
 ### Linux
 
 These are steps to install Python and required modules on Linux:
 
-1. Install the `pillow` module:
-pip install pillow
+1. Install the `pillow` module:<br/>
+`pip install pillow`
 
 ## Usage
 
