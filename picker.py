@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from tkinter import *
+from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
