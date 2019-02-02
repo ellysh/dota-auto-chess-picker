@@ -61,17 +61,18 @@ def highlight_similarity(piece_name, index, first_color, second_color):
   for key, value in BUTTONS.iteritems():
     check_similarity_list = PIECES[key][index].split('/')
 
-    if similarity_list[0] in check_similarity_list and key != piece_name:
-      if value[0].cget("bg") == "gray":
-        value[0].config(bg = first_color)
-      else:
-        value[0].config(bg = "#7742f4")
+    if key != piece_name:
+      color = "gray"
 
-    if 1 < len(similarity_list) and \
-       similarity_list[1] in check_similarity_list and key != piece_name:
+      if similarity_list[0] in check_similarity_list:
+        color = first_color
+      elif 1 < len(similarity_list) \
+           and similarity_list[1] in check_similarity_list:
+        color = second_color
+
       if value[0].cget("bg") == "gray":
-        value[0].config(bg = second_color)
-      else:
+        value[0].config(bg = color)
+      elif color != "gray":
         value[0].config(bg = "#7742f4")
 
 def highlight_species(piece_name):
@@ -113,7 +114,7 @@ def button_click(piece_name):
 
 def add_button(window, handler, piece_name, column, row):
   button = Button(window)
-  button.grid(column = column, row = row)
+  button.grid(column = column, row = row, sticky=W)
 
   img = ImageTk.PhotoImage(Image.open("images/" + piece_name + ".png"))
   button.config(image = img, command = lambda:handler(piece_name))
