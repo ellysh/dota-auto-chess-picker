@@ -154,7 +154,8 @@ def make_window():
   SPECIES_NUMBER_1 = Label(window, font=("Arial Bold", 12))
   SPECIES_NUMBER_1.grid(column = 1, row = 12, columnspan = 2)
 
-  SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12))
+  SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12), \
+                                wraplength=300, anchor=NW, justify=LEFT)
   SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
 
   color2 = Label(window, bg = "yellow", width = 4, height = 1)
@@ -163,7 +164,8 @@ def make_window():
   SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
   SPECIES_NUMBER_2.grid(column = 1, row = 13, columnspan = 2)
 
-  SPECIES_DESCRIPTION_2 = Label(window, font=("Arial Bold", 12))
+  SPECIES_DESCRIPTION_2 = Label(window, font=("Arial Bold", 12), \
+                                wraplength=300, anchor=NW, justify=LEFT)
   SPECIES_DESCRIPTION_2.grid(column = 3, row = 13, columnspan = 10)
 
   color3 = Label(window, bg = "blue", width = 4, height = 1)
@@ -172,13 +174,16 @@ def make_window():
   CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
   CLASS_NUMBER.grid(column = 1, row = 14, columnspan = 2)
 
-  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12))
+  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
+                            wraplength=300, anchor=NW, justify=LEFT)
   CLASS_DESCRIPTION.grid(column = 3, row = 14, columnspan = 10)
 
   color4 = Label(window, bg = "#7742f4", width = 4, height = 1)
   color4.grid(column = 0, row = 15)
 
-  both_description = Label(window, text = "Both pieces and class matches", font=("Arial Bold", 12))
+  both_description = Label(window, text = "Both pieces and class \
+matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
+    justify=LEFT)
   both_description.grid(column = 1, row = 15, columnspan = 10)
 
   window.mainloop()
