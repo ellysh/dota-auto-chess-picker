@@ -1,0 +1,76 @@
+Tier;Item;Bonus;Upgrades
+1;"Attack Blade";"+10 Attack Damage";Crystalys
+1;"Blight Stone";"-3 Armor for target";Desolator
+1;"Chain Mail";"+5 Armor";"Assault Cuirass / Blade Mail"
+1;Cloak;"+15 Magic Resistance";"Hood of Defiance"
+1;Crown;"+25% Mana Regeneration on damage taken";"Dagon 1 / Dagon 2"
+1;"Health Ring";"+10 HP Regeneration";"Hood of Defiance / Perseverance / Tarrasque Heart / Vanguard "
+1;"Magi Robe";"-10 Magic Resistance for taret";Kaya
+1;"Morbid Mask";"+5% Lifesteal";"Madness Mask"
+1;"Quarter Staff";"+5 Attack Damage
++10 Attack Speed";"Madness Mask / Monkey King Bar"
+1;"Regen Ring";"+5 HP Regeneration";"Hood of Defiance"
+1;"Stout Shield";"Block 10 damage";Vanguard
+1;"Void Stone";"+50% Mana Regeneration on attacks";"Perseverance / Scythe Of Vyse"
+2;"Broad Sword";"+20 Attack Damage";"Crystalys / Blade Mail"
+2;Javelin;"+15 Attack Damage";"Maelstrom / Monkey King Bar"
+2;"Mithril Hammer";"+15 Attack Damage";"Desolator / Maelstrom"
+2;"Plate Mail";"+10 Armor";"Assault Cuirass / Shiva's Guard"
+2;"Vitality Booster";"+250 Max HP";"Tarrasque Heart Vanguard"
+2;"Wizardry Staff";"-20 Magic Resistance for target";"Dagon 1 / Kaya"
+3;"Demon Edge";"+30 Attack Damage";"Daedalus / Divine Rapier / Monkey King Bar"
+3;Hyperstone;"+30 Attack Speed";"Assault Cuirass / Mjollnir / Moon Shard"
+3;"Ultimate Orb";"+250 Max HP
++25% Mana Regeneration on damage taken";"Scythe Of Vyse"
+4;"Mystic Staff";"-20 Magic Resistance on target
++25% Mana Regeneration on damage taken";"Scythe Of Vyse / Shiva's Guard"
+4;Reaver;"+500 Max HP
++10 HP Regeneration";"Tarrasque Heart"
+4;"Sacred Relic";"+50 Attack Damage";"Divine Rapier"
+U;"Assault Cuirass";"Aura: +10 Armor, +15 Attack Speed for adjacent allies
+Aura: -10 Armor, -15 Attack Speed for adjacent enemies";
+U;"Blade Mail";"+5 Armor, +10 Attack Damage
+Deals 10% damage taken to attacker";
+U;Crystalys;"+15 Attack Damage
+15% chance to deal 1.5x damage";Daedalus
+U;Daedalus;"+40 Attack Damage
+10% chance to deal 4x damage ";
+U;"Dagon 1";"Dagon 2 -20 Magic Resistance for target
+Auto cast: Deals 400 damage to random enemy";"Dagon 2"
+U;Desolator;"+30 Attack damage
+-15 armor for target ";
+U;"Divine Rapier";"+150 Attack Damage ";
+U;"Hood of Defiance";"+10 HP Regeneration
++30 Magic Resistance ";
+U;Kaya;"-60 Magic Resistance for target ";
+U;"Madness Mask";"+10% Lifesteal
++30 Attack Speed
+-10 Armor ";
+U;Maelstrom;"+25 Attack Damage
+Passive: 25% chance to release a shocking bolt that deals 
+100 damage to up to 3 enemy units on attacks ";Mjollnir
+U;Mjollnir;"+80 Attack Damage
++30 Attack Speed
+Passive: 25% chance to release a shocking bolt that deals
+ 200 damage to up to 5 enemy units on attacks ";
+U;"Monkey King Bar";"+80 Attack Damage
++10 Attack Speed
+Passive: True Strike ";
+U;"Moon Shard";"+70 Attack Speed ";
+U;Perseverance;"+10 HP Regeneration
++100% Mana Regeneration on attacks ";"Refresher Orb"
+U;"Refresher Orb";"+20 HP Regeneration
++200% Mana Regeneration
+Auto-cast: Refresh your ability on first cast ";
+U;"Scythe Of Vyse";"-20 Magic Resistance on target
++50% Mana Regeneration on damage taken and attacks
++250 Max HP
+Auto-cast: Hex an enemy for 5s ";
+U;"Shiva's Guard";"+20 Armor
++5 Mana Regeneration
+-50 Attack speed for target ";
+U;"Tarrasque Heart";"+1000 Max HP
++1% HP Regeneration every 2s ";
+U;Vanguard;"+250 Max HP
++10HP Regeneration
+50% chance to block 50 damage ";
