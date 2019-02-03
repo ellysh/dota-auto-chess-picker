@@ -37,6 +37,14 @@ U;Daedalus;"+40 Attack Damage
 10% chance to deal 4x damage ";
 U;"Dagon 1";"Dagon 2 -20 Magic Resistance for target
 Auto cast: Deals 400 damage to random enemy";"Dagon 2"
+U;"Dagon 2";"-40 Magic Resistance for target
+Auto cast: Deals 500 damage to random enemy ";
+U;"Dagon 3";"-60 Magic Resistance for target
+Auto cast: Deals 600 damage to random enemy ";
+U;"Dagon 4";"-80 Magic Resistance for target
+Auto cast: Deals 700 damage to random enemy ";
+U;"Dagon 5";"-100 Magic Resistance for target
+Auto cast: Deals 800 damage to random enemy ";
 U;Desolator;"+30 Attack damage
 -15 armor for target ";
 U;"Divine Rapier";"+150 Attack Damage ";
