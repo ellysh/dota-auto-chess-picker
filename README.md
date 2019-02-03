@@ -1,4 +1,4 @@
-# Dota Auto Chess Picker 0.1 version
+# Dota Auto Chess Picker 0.2 version
 
 *This project is still in a developing stage.*
 
