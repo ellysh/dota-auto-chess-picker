@@ -182,7 +182,7 @@ def make_window():
   color4 = Label(window, bg = "#7742f4", width = 4, height = 1)
   color4.grid(column = 0, row = 15)
 
-  both_description = Label(window, text = "Both pieces and class \
+  both_description = Label(window, text = "Both species and class \
 matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
     justify=LEFT)
   both_description.grid(column = 1, row = 15, columnspan = 10)
