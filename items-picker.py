@@ -11,6 +11,8 @@ _DEFAULT_COLOR = "#d9d9d9"
 ITEMS = {}
 BUTTONS = {}
 
+ITEM_DESCRIPTION = None
+
 def load_table(filename, table):
   with open(filename) as csv_file:
     csv_reader = reader(csv_file, delimiter=';')
@@ -57,10 +59,13 @@ def highlight_items(item_name):
 def button_click(item_name):
   global BUTTONS
   global ITEMS
+  global ITEM_DESCRIPTION
 
   reset_all_buttons()
 
   BUTTONS[item_name][0].config(bg = "red")
+
+  ITEM_DESCRIPTION.config(text = ITEMS[item_name][0])
 
   highlight_items(item_name)
 
@@ -79,6 +84,7 @@ def make_window():
   global VERSION
   global ITEMS
   global BUTTONS
+  global ITEM_DESCRIPTION
 
   window = Tk()
 
@@ -95,6 +101,10 @@ def make_window():
     if 6 < row:
       row = 0
       column += 1
+
+  ITEM_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
+                                wraplength=300, anchor=NW, justify=LEFT)
+  ITEM_DESCRIPTION.grid(column = 0, row = 8, columnspan = 6)
 
   window.mainloop()
 
