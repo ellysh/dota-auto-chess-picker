@@ -2,13 +2,9 @@
 
 *This project is still in a developing stage.*
 
-Dota Auto Chess Picker is a utility to check combinations of pieces.
+Dota Auto Chess Picker is a utility to check combinations of pieces and items.
 
 A current development state is available in the [`CHANGELOG.md`](CHANGELOG.md) file.
-
-## Concept
-
-This utility shows you all actual combinations of the pieces depending on their species and classes.
 
 ## Installation
 
@@ -44,9 +40,23 @@ https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
 
 ## Usage
 
-![Dota Auto Chess Picker](images/readme/picker_window.png)
+### Pieces Picker
 
-Start the `pieces-picker.py` script and click on the piece icon. All pieces of the same species will be highlighted by the green color. If the piece has second species, then corresponding pieces will be highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
+The `pieces-picker.py` script shows you all combinations of the pieces depending on their species and classes.
+
+![Pieces Picker](images/readme/picker_window.png)
+
+Start the `pieces-picker.py` script and click on the piece icon. The green color will highlight all pieces of the same species. If the piece has second species, then corresponding pieces will be highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
+
+### Items Picker
+
+The `items-picker.py` script shows you combinations of items.
+
+![Items Picker](images/readme/items-picker-window.png)
+
+Start the `items-picker.py` script and click on the item icon. The red color will highlight the selected item. You will see a description of this item at the bottom of the window. Also, the items which can be combined with the selected item will be highlighted. The result of the combination will be highlighted with the same color as its components.
+
+Let us consider the screenshot above. The select item is Health Ring. You can combine it with Regen Ring and Cloak for getting the Hood of Defiance. So, all these items are Hood of Defiance by the green color.
 
 ## Contacts
 
