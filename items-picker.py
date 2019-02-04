@@ -32,29 +32,24 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_components(upgrade_name, color):
+def highlight_components(upgrade_name):
   global ITEMS
 
   for key, value in ITEMS.iteritems():
     upgrades = [upgrade.strip() for upgrade in ITEMS[key][1].split('/')]
 
     if upgrade_name in upgrades and BUTTONS[key][0].cget("bg") != "red":
-      BUTTONS[key][0].config(bg = color)
+      BUTTONS[key][0].config(bg = "green")
 
 def highlight_items(item_name):
   global ITEMS
 
-  color = ["green", "yellow", "blue", "#7742f4"]
-  color_index = 0
-
   upgrades = [upgrade.strip() for upgrade in ITEMS[item_name][1].split('/')]
   for key, value in BUTTONS.iteritems():
     if key in upgrades:
-      value[0].config(bg = color[color_index])
+      value[0].config(bg = "blue")
 
-      highlight_components(key, color[color_index])
-
-      color_index = color_index + 1
+  highlight_components(item_name)
 
 def button_click(item_name):
   global BUTTONS
