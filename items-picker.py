@@ -30,13 +30,29 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
+def highlight_components(upgrade_name, color):
+  global ITEMS
+
+  for key, value in ITEMS.iteritems():
+    upgrades = [upgrade.strip() for upgrade in ITEMS[key][1].split('/')]
+
+    if upgrade_name in upgrades and BUTTONS[key][0].cget("bg") != "red":
+      BUTTONS[key][0].config(bg = color)
+
 def highlight_items(item_name):
   global ITEMS
+
+  color = ["green", "yellow", "blue", "#7742f4"]
+  color_index = 0
 
   upgrades = [upgrade.strip() for upgrade in ITEMS[item_name][1].split('/')]
   for key, value in BUTTONS.iteritems():
     if key in upgrades:
-      value[0].config(bg = "green")
+      value[0].config(bg = color[color_index])
+
+      highlight_components(key, color[color_index])
+
+      color_index = color_index + 1
 
 def button_click(item_name):
   global BUTTONS
@@ -53,7 +69,9 @@ def add_button(window, handler, item_name, column, row):
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/items/" + item_name + ".png"))
-  button.config(image = img, command = lambda:handler(item_name))
+  button.config(image = img, command = lambda:handler(item_name), \
+                compound = TOP, text = "   ", font=("Arial Bold", 4), \
+                pady = 0, padx = 0)
 
   return button, img
 
@@ -74,7 +92,7 @@ def make_window():
 
     row += 1
 
-    if 10 < row:
+    if 6 < row:
       row = 0
       column += 1
 
