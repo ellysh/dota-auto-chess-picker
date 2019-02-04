@@ -56,7 +56,7 @@ The `items-picker.py` script shows you combinations of items.
 
 Start the `items-picker.py` script and click on the item icon. The red color will highlight the selected item. You will see a description of this item at the bottom of the window. Also, the items which can be combined with the selected item will be highlighted. The result of the combination will be highlighted with the same color as its components.
 
-Let us consider the screenshot above. The select item is Health Ring. You can combine it with Regen Ring and Cloak for getting the Hood of Defiance. So, all these items are Hood of Defiance by the green color.
+Let us consider the screenshot above. The select item is Health Ring. You can combine it with Regen Ring and Cloak for getting the Hood of Defiance. So, all these items are Hood of Defiance by the green color. In the same way, Vitality Booster, Stout Shield and Vanguard are highlighted by the yellow color.
 
 ## Contacts
 
