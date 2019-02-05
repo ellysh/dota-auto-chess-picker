@@ -23,7 +23,7 @@ def load_table(filename, table):
     next(csv_file)
 
     for line in csv_reader:
-      table[line[1]] = [line[2], line[3]]
+      table[line[1]] = [line[2], line[3], line[0]]
 
 def load_items():
   global ITEMS
@@ -72,20 +72,38 @@ def button_click(item_name):
 
   highlight_items(item_name)
 
-def add_button(window, handler, item_name, column, row):
+def add_button(window, handler, item_name, tier, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/items/" + item_name + ".png"))
+  tier_text = "*" * int(tier) if tier.isdigit() else tier
+
   button.config(image = img, command = lambda:handler(item_name), \
-                compound = TOP, text = "   ", font=("Arial Bold", 4), \
+                compound = TOP, text = tier_text, font=("Arial Bold", 4), \
                 pady = 0, padx = 0)
 
   return button, img
 
+def add_buttons(window):
+  global BUTTONS
+  global ITEMS
+
+  row = 0
+  column = 0
+
+  for key, value in ITEMS.iteritems():
+    BUTTONS[key] = add_button(window, button_click, key, value[2], \
+                              column, row)
+
+    column += 1
+
+    if 6 < column:
+      column = 0
+      row += 1
+
 def make_window():
   global VERSION
-  global ITEMS
   global BUTTONS
   global ITEM_DESCRIPTION
 
@@ -93,17 +111,7 @@ def make_window():
 
   window.title("Dota Auto Chess Picker " + _VERSION)
 
-  row = 0
-  column = 0
-
-  for item in ITEMS:
-    BUTTONS[item] = add_button(window, button_click, item, row, column)
-
-    row += 1
-
-    if 6 < row:
-      row = 0
-      column += 1
+  add_buttons(window)
 
   ITEM_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
                                 wraplength=300, anchor=NW, justify=LEFT)
