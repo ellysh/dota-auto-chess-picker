@@ -1,7 +1,5 @@
 # Dota Auto Chess Picker 0.4 version
 
-*This project is still in a developing stage.*
-
 Dota Auto Chess Picker is a utility to check combinations of pieces and items.
 
 A current development state is available in the [`CHANGELOG.md`](CHANGELOG.md) file.
