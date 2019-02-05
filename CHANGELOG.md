@@ -1,3 +1,7 @@
+* version 0.4
+  - Add stars to indicate the cost of pieces and tier of items.
+  - Make the color scheme lighter.
+
 * version 0.3
   - Add the items-picker.py script.
 
