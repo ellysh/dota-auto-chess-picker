@@ -25,28 +25,31 @@ CLASS_NUMBER = None
 
 BUTTONS = {}
 
-def load_table(filename, table):
+def load_table(filename, table, max_column):
   with open(filename) as csv_file:
     csv_reader = reader(csv_file, delimiter=';')
     next(csv_file)
 
     for line in csv_reader:
-      table[line[0]] = [line[1], line[2]]
+      if max_column == 3:
+        table[line[0]] = [line[1], line[2], line[3]]
+      else:
+        table[line[0]] = [line[1], line[2]]
 
 def load_pieces():
   global PIECES
 
-  load_table(_PIECES_FILE, PIECES)
+  load_table(_PIECES_FILE, PIECES, 3)
 
 def load_species():
   global SPECIES
 
-  load_table(_SPECIES_FILE, SPECIES)
+  load_table(_SPECIES_FILE, SPECIES, 2)
 
 def load_classes():
   global CLASSES
 
-  load_table(_CLASSES_FILE, CLASSES)
+  load_table(_CLASSES_FILE, CLASSES, 2)
 
 def reset_all_buttons():
   global BUTTONS
@@ -113,19 +116,38 @@ def button_click(piece_name):
   CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
   CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
 
-def add_button(window, handler, piece_name, column, row):
+def add_button(window, button_click, piece, level, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open("images/pieces/" + piece_name + ".png"))
-  button.config(image = img, command = lambda:handler(piece_name))
+  img = ImageTk.PhotoImage(Image.open( \
+                           "images/pieces/" + piece + ".png"))
+
+  button.config(image = img, command = lambda:button_click(piece), \
+                compound = TOP, text = level, \
+                font=("Arial Bold", 4), pady = 0, padx = 0)
 
   return button, img
 
+def add_buttons(window):
+  global BUTTONS
+  global PIECES
+
+  row = 0
+  column = 0
+
+  for key, value in PIECES.iteritems():
+    BUTTONS[key] = add_button(window, button_click, key, value[2], \
+                              column, row)
+
+    column += 1
+
+    if 10 < column:
+      column = 0
+      row += 1
+
 def make_window():
   global VERSION
-  global PIECES
-  global BUTTONS
   global SPECIES_DESCRIPTION_1
   global SPECIES_NUMBER_1
   global SPECIES_DESCRIPTION_2
@@ -137,17 +159,7 @@ def make_window():
 
   window.title("Dota Auto Chess Picker " + _VERSION)
 
-  row = 0
-  column = 0
-
-  for piece in PIECES:
-    BUTTONS[piece] = add_button(window, button_click, piece, row, column)
-
-    row += 1
-
-    if 10 < row:
-      row = 0
-      column += 1
+  add_buttons(window)
 
   color1 = Label(window, bg = "green", width = 4, height = 1)
   color1.grid(column = 0, row = 12)
