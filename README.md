@@ -47,7 +47,7 @@ https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
 
 The `pieces-picker.py` script shows you all combinations of the pieces depending on their species and classes.
 
-![Pieces Picker](images/readme/picker_window.png)
+![Pieces Picker](images/readme/pieces-picker-window.png)
 
 Start the `pieces-picker.py` script and click on the piece icon. The green color will highlight all pieces of the same species. If the piece has second species, then corresponding pieces will be highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
 
