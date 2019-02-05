@@ -6,7 +6,11 @@ from PIL import ImageTk,Image
 
 _VERSION = "0.3"
 _ITEMS_FILE = "database/csv/items.csv"
+
 _DEFAULT_COLOR = "#d9d9d9"
+_AZURE_COLOR = "#5795f9"
+_GREEN_COLOR = "#66ce54"
+_RED_COLOR = "#ff4f4f"
 
 ITEMS = {}
 BUTTONS = {}
@@ -34,20 +38,23 @@ def reset_all_buttons():
 
 def highlight_components(upgrade_name):
   global ITEMS
+  global _GREEN_COLOR
+  global _RED_COLOR
 
   for key, value in ITEMS.iteritems():
     upgrades = [upgrade.strip() for upgrade in ITEMS[key][1].split('/')]
 
-    if upgrade_name in upgrades and BUTTONS[key][0].cget("bg") != "red":
-      BUTTONS[key][0].config(bg = "green")
+    if upgrade_name in upgrades and BUTTONS[key][0].cget("bg") != _RED_COLOR:
+      BUTTONS[key][0].config(bg = _GREEN_COLOR)
 
 def highlight_items(item_name):
   global ITEMS
+  global _AZURE_COLOR
 
   upgrades = [upgrade.strip() for upgrade in ITEMS[item_name][1].split('/')]
   for key, value in BUTTONS.iteritems():
     if key in upgrades:
-      value[0].config(bg = "blue")
+      value[0].config(bg = _AZURE_COLOR)
 
   highlight_components(item_name)
 
@@ -55,10 +62,11 @@ def button_click(item_name):
   global BUTTONS
   global ITEMS
   global ITEM_DESCRIPTION
+  global _RED_COLOR
 
   reset_all_buttons()
 
-  BUTTONS[item_name][0].config(bg = "red")
+  BUTTONS[item_name][0].config(bg = _RED_COLOR)
 
   ITEM_DESCRIPTION.config(text = ITEMS[item_name][0])
 
