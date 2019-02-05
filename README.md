@@ -35,7 +35,10 @@ These are steps to install Python and required modules on Linux:
 1. Download the archive with Dota Auto Chess Picker and extract it:<br/>
 https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
 
-2. Install the `pillow` module:<br/>
+2. Install the Tkinter module:<br/>
+`sudo apt-get install python-tk`
+
+3. Install the `pillow` module:<br/>
 `pip install pillow`
 
 ## Usage
