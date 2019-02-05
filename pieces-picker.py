@@ -139,7 +139,7 @@ def add_button(window, button_click, piece, level, column, row):
 
   button.config(image = img, command = lambda:button_click(piece), \
                 compound = TOP, text = '* ' * int(level), \
-                font=("Arial Bold", 4), pady = 0, padx = 0)
+                font=("Arial Bold", 5), pady = 0, padx = 0)
 
   return button, img
 

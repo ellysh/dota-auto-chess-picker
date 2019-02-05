@@ -77,10 +77,10 @@ def add_button(window, handler, item_name, tier, column, row):
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open("images/items/" + item_name + ".png"))
-  tier_text = "*" * int(tier) if tier.isdigit() else tier
+  tier_text = "* " * int(tier) if tier.isdigit() else tier
 
   button.config(image = img, command = lambda:handler(item_name), \
-                compound = TOP, text = tier_text, font=("Arial Bold", 4), \
+                compound = TOP, text = tier_text, font=("Arial Bold", 5), \
                 pady = 0, padx = 0)
 
   return button, img
