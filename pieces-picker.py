@@ -8,7 +8,14 @@ _VERSION = "0.3"
 _PIECES_FILE = "database/csv/pieces.csv"
 _SPECIES_FILE = "database/csv/species.csv"
 _CLASSES_FILE = "database/csv/classes.csv"
+
 _DEFAULT_COLOR = "#d9d9d9"
+_AZURE_COLOR = "#5795f9"
+_BLUE_COLOR = "#144593"
+_GREEN_COLOR = "#71cc61"
+_YELLOW_COLOR = "#f9ef31"
+_PURPLE_COLOR = "#8757f9"
+_RED_COLOR = "#ff4f4f"
 
 PIECES = {}
 SPECIES = {}
@@ -59,6 +66,7 @@ def reset_all_buttons():
 
 def highlight_similarity(piece_name, index, first_color, second_color):
   global PIECES
+  global _PURPLE_COLOR
 
   similarity_list = PIECES[piece_name][index].split('/')
 
@@ -77,12 +85,17 @@ def highlight_similarity(piece_name, index, first_color, second_color):
       if value[0].cget("bg") == _DEFAULT_COLOR:
         value[0].config(bg = color)
       elif color != _DEFAULT_COLOR:
-        value[0].config(bg = "#7742f4")
+        value[0].config(bg = _PURPLE_COLOR)
 
 def highlight_species(piece_name):
-  highlight_similarity(piece_name, 0, "green", "yellow")
+  global _AZURE_COLOR
+  global _BLUE_COLOR
+  global _GREEN_COLOR
+  global _YELLOW_COLOR
 
-  highlight_similarity(piece_name, 1, "blue", "black")
+  highlight_similarity(piece_name, 0, _GREEN_COLOR, _YELLOW_COLOR)
+
+  highlight_similarity(piece_name, 1, _AZURE_COLOR, _BLUE_COLOR)
 
 def button_click(piece_name):
   global BUTTONS
@@ -95,10 +108,11 @@ def button_click(piece_name):
   global PIECES
   global SPECIES
   global CLASSES
+  global _RED_COLOR
 
   reset_all_buttons()
 
-  BUTTONS[piece_name][0].config(bg = "red")
+  BUTTONS[piece_name][0].config(bg = _RED_COLOR)
 
   highlight_species(piece_name)
 
@@ -124,7 +138,7 @@ def add_button(window, button_click, piece, level, column, row):
                            "images/pieces/" + piece + ".png"))
 
   button.config(image = img, command = lambda:button_click(piece), \
-                compound = TOP, text = level, \
+                compound = TOP, text = '* ' * int(level), \
                 font=("Arial Bold", 4), pady = 0, padx = 0)
 
   return button, img
@@ -154,6 +168,10 @@ def make_window():
   global SPECIES_NUMBER_2
   global CLASS_DESCRIPTION
   global CLASS_NUMBER
+  global _PURPLE_COLOR
+  global _GREEN_COLOR
+  global _YELLOW_COLOR
+  global _AZURE_COLOR
 
   window = Tk()
 
@@ -161,7 +179,7 @@ def make_window():
 
   add_buttons(window)
 
-  color1 = Label(window, bg = "green", width = 4, height = 1)
+  color1 = Label(window, bg = _GREEN_COLOR, width = 4, height = 1)
   color1.grid(column = 0, row = 12)
 
   SPECIES_NUMBER_1 = Label(window, font=("Arial Bold", 12))
@@ -171,7 +189,7 @@ def make_window():
                                 wraplength=300, anchor=NW, justify=LEFT)
   SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
 
-  color2 = Label(window, bg = "yellow", width = 4, height = 1)
+  color2 = Label(window, bg = _YELLOW_COLOR, width = 4, height = 1)
   color2.grid(column = 0, row = 13)
 
   SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
@@ -181,7 +199,7 @@ def make_window():
                                 wraplength=300, anchor=NW, justify=LEFT)
   SPECIES_DESCRIPTION_2.grid(column = 3, row = 13, columnspan = 10)
 
-  color3 = Label(window, bg = "blue", width = 4, height = 1)
+  color3 = Label(window, bg = _AZURE_COLOR, width = 4, height = 1)
   color3.grid(column = 0, row = 14)
 
   CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
@@ -191,7 +209,7 @@ def make_window():
                             wraplength=300, anchor=NW, justify=LEFT)
   CLASS_DESCRIPTION.grid(column = 3, row = 14, columnspan = 10)
 
-  color4 = Label(window, bg = "#7742f4", width = 4, height = 1)
+  color4 = Label(window, bg = _PURPLE_COLOR, width = 4, height = 1)
   color4.grid(column = 0, row = 15)
 
   both_description = Label(window, text = "Both species and class \
