@@ -51,6 +51,8 @@ The `pieces-picker.py` script shows you all combinations of the pieces depending
 
 Start the `pieces-picker.py` script and click on the piece icon. The green color will highlight all pieces of the same species. If the piece has second species, then corresponding pieces will be highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
 
+Stars under each piece icon show its cost.
+
 ### Items Picker
 
 The `items-picker.py` script shows you combinations of items.
@@ -60,6 +62,8 @@ The `items-picker.py` script shows you combinations of items.
 Start the `items-picker.py` script and click on the item icon. The red color will highlight the selected item. You will see a description of this item at the bottom of the window. If the item can be combined in the upgrade, it will be marked by the blue color. The green color will highlight all components (if they exist) of the selected item.
 
 Let us consider the screenshot above. The select item is Maelstorm. You can combine it with Hyperstone for getting Mjollnir. So, Mjollnir is marked by the blue color.  You can get Maelstorm by the combination of Javelin and Mithril Hammer. Thus, these two items are highlighted by the green color.
+
+Stars under each item icon show its tier. The `U` letter means that this is an upgraded item.
 
 ## Contacts
 
