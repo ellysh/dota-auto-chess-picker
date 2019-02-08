@@ -6,57 +6,36 @@ from PIL import ImageTk,Image
 
 _VERSION = "0.4"
 _PIECES_FILE = "database/csv/pieces.csv"
-_SPECIES_FILE = "database/csv/species.csv"
-_CLASSES_FILE = "database/csv/classes.csv"
+_COMBOS_FILE = "database/csv/combos.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
-_AZURE_COLOR = "#5795f9"
-_BLUE_COLOR = "#144593"
 _GREEN_COLOR = "#66ce54"
-_YELLOW_COLOR = "#f9ef31"
-_PURPLE_COLOR = "#8757f9"
 _RED_COLOR = "#ff4f4f"
 
 PIECES = {}
-SPECIES = {}
-CLASSES = {}
-
-SPECIES_DESCRIPTION_1 = None
-SPECIES_NUMBER_1 = None
-
-SPECIES_DESCRIPTION_2 = None
-SPECIES_NUMBER_2 = None
-
-CLASS_DESCRIPTION = None
-CLASS_NUMBER = None
+COMBOS = []
 
 BUTTONS = {}
-
-def load_table(filename, table, max_column):
-  with open(filename) as csv_file:
-    csv_reader = reader(csv_file, delimiter=';')
-    next(csv_file)
-
-    for line in csv_reader:
-      if max_column == 3:
-        table[line[0]] = [line[1], line[2], line[3]]
-      else:
-        table[line[0]] = [line[1], line[2]]
 
 def load_pieces():
   global PIECES
 
-  load_table(_PIECES_FILE, PIECES, 3)
+  with open(_PIECES_FILE) as csv_file:
+    csv_reader = reader(csv_file, delimiter=';')
+    next(csv_file)
 
-def load_species():
-  global SPECIES
+    for line in csv_reader:
+     PIECES[line[0]] = [line[1], line[2], line[3]]
 
-  load_table(_SPECIES_FILE, SPECIES, 2)
+def load_combos():
+  global COMBOS
 
-def load_classes():
-  global CLASSES
+  with open(_COMBOS_FILE) as csv_file:
+    csv_reader = reader(csv_file, delimiter=';')
+    next(csv_file)
 
-  load_table(_CLASSES_FILE, CLASSES, 2)
+    for line in csv_reader:
+      COMBOS.append(line[1])
 
 def reset_all_buttons():
   global BUTTONS
@@ -162,16 +141,6 @@ def add_buttons(window):
 
 def make_window():
   global VERSION
-  global SPECIES_DESCRIPTION_1
-  global SPECIES_NUMBER_1
-  global SPECIES_DESCRIPTION_2
-  global SPECIES_NUMBER_2
-  global CLASS_DESCRIPTION
-  global CLASS_NUMBER
-  global _PURPLE_COLOR
-  global _GREEN_COLOR
-  global _YELLOW_COLOR
-  global _AZURE_COLOR
 
   window = Tk()
 
@@ -179,52 +148,12 @@ def make_window():
 
   add_buttons(window)
 
-  color1 = Label(window, bg = _GREEN_COLOR, width = 4, height = 1)
-  color1.grid(column = 0, row = 12)
-
-  SPECIES_NUMBER_1 = Label(window, font=("Arial Bold", 12))
-  SPECIES_NUMBER_1.grid(column = 1, row = 12, columnspan = 2)
-
-  SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
-
-  color2 = Label(window, bg = _YELLOW_COLOR, width = 4, height = 1)
-  color2.grid(column = 0, row = 13)
-
-  SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
-  SPECIES_NUMBER_2.grid(column = 1, row = 13, columnspan = 2)
-
-  SPECIES_DESCRIPTION_2 = Label(window, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_2.grid(column = 3, row = 13, columnspan = 10)
-
-  color3 = Label(window, bg = _AZURE_COLOR, width = 4, height = 1)
-  color3.grid(column = 0, row = 14)
-
-  CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
-  CLASS_NUMBER.grid(column = 1, row = 14, columnspan = 2)
-
-  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
-                            wraplength=300, anchor=NW, justify=LEFT)
-  CLASS_DESCRIPTION.grid(column = 3, row = 14, columnspan = 10)
-
-  color4 = Label(window, bg = _PURPLE_COLOR, width = 4, height = 1)
-  color4.grid(column = 0, row = 15)
-
-  both_description = Label(window, text = "Both species and class \
-matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
-    justify=LEFT)
-  both_description.grid(column = 1, row = 15, columnspan = 10)
-
   window.mainloop()
 
 def main():
   load_pieces()
 
-  load_species()
-
-  load_classes()
+  load_combos()
 
   make_window()
 
