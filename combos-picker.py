@@ -14,6 +14,7 @@ _RED_COLOR = "#ff4f4f"
 
 PIECES = {}
 COMBOS = []
+CHOOSED_PIECES = []
 
 BUTTONS = {}
 
@@ -41,22 +42,38 @@ def reset_all_buttons():
   global BUTTONS
 
   for key, value in BUTTONS.iteritems():
-    value[0].config(bg = _DEFAULT_COLOR)
+    if BUTTONS[key][0].cget("bg") != _RED_COLOR:
+      value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_combos(piece_name):
-  # TODO: Implement this function
-  pass
+def highlight_combo_pieces(combo):
+  global BUTTONS
+  global _GREEN_COLOR
+  global _RED_COLOR
+
+  for key, value in BUTTONS.iteritems():
+    if (key in combo) and BUTTONS[key][0].cget("bg") != _RED_COLOR:
+      value[0].config(bg = _GREEN_COLOR)
+
+def highlight_combos(pieces):
+  global COMBOS
+
+  for combo in COMBOS:
+    combo_set = set([x.strip() for x in combo.split(',')])
+
+    if set(pieces).issubset(combo_set):
+      highlight_combo_pieces(combo)
 
 def button_click(piece_name):
   global BUTTONS
-  global PIECES
   global _RED_COLOR
+  global CHOOSED_PIECES
 
   reset_all_buttons()
 
   BUTTONS[piece_name][0].config(bg = _RED_COLOR)
+  CHOOSED_PIECES.append(piece_name)
 
-  highlight_combos(piece_name)
+  highlight_combos(CHOOSED_PIECES)
 
 def add_button(window, button_click, piece, level, column, row):
   button = Button(window)
