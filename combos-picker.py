@@ -69,13 +69,18 @@ def highlight_combos(pieces):
 
 def button_click(piece_name):
   global BUTTONS
-  global _RED_COLOR
   global CHOOSED_PIECES
+  global _RED_COLOR
+  global _DEFAULT_COLOR
 
   reset_buttons(False)
 
-  BUTTONS[piece_name][0].config(bg = _RED_COLOR)
-  CHOOSED_PIECES.append(piece_name)
+  if BUTTONS[piece_name][0].cget("bg") == _RED_COLOR:
+    BUTTONS[piece_name][0].config(bg = _DEFAULT_COLOR)
+    CHOOSED_PIECES.remove(piece_name)
+  else:
+    BUTTONS[piece_name][0].config(bg = _RED_COLOR)
+    CHOOSED_PIECES.append(piece_name)
 
   highlight_combos(CHOOSED_PIECES)
 
@@ -119,6 +124,8 @@ def make_window():
   add_buttons(window)
 
   window.bind('<Escape>', lambda event, a = True: reset_buttons(a))
+
+  highlight_combos(CHOOSED_PIECES)
 
   window.mainloop()
 
