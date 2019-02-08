@@ -43,71 +43,20 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_similarity(piece_name, index, first_color, second_color):
-  global PIECES
-  global _PURPLE_COLOR
-
-  similarity_list = PIECES[piece_name][index].split('/')
-
-  for key, value in BUTTONS.iteritems():
-    check_similarity_list = PIECES[key][index].split('/')
-
-    if key != piece_name:
-      color = _DEFAULT_COLOR
-
-      if similarity_list[0] in check_similarity_list:
-        color = first_color
-      elif 1 < len(similarity_list) \
-           and similarity_list[1] in check_similarity_list:
-        color = second_color
-
-      if value[0].cget("bg") == _DEFAULT_COLOR:
-        value[0].config(bg = color)
-      elif color != _DEFAULT_COLOR:
-        value[0].config(bg = _PURPLE_COLOR)
-
-def highlight_species(piece_name):
-  global _AZURE_COLOR
-  global _BLUE_COLOR
-  global _GREEN_COLOR
-  global _YELLOW_COLOR
-
-  highlight_similarity(piece_name, 0, _GREEN_COLOR, _YELLOW_COLOR)
-
-  highlight_similarity(piece_name, 1, _AZURE_COLOR, _BLUE_COLOR)
+def highlight_combos(piece_name):
+  # TODO: Implement this function
+  pass
 
 def button_click(piece_name):
   global BUTTONS
-  global SPECIES_DESCRIPTION_1
-  global SPECIES_NUMBER_1
-  global SPECIES_DESCRIPTION_2
-  global SPECIES_NUMBER_2
-  global CLASS_DESCRIPTION
-  global CLASS_NUMBER
   global PIECES
-  global SPECIES
-  global CLASSES
   global _RED_COLOR
 
   reset_all_buttons()
 
   BUTTONS[piece_name][0].config(bg = _RED_COLOR)
 
-  highlight_species(piece_name)
-
-  species = PIECES[piece_name][0].split('/')
-  SPECIES_NUMBER_1.config(text = SPECIES[species[0]][0])
-  SPECIES_DESCRIPTION_1.config(text = SPECIES[species[0]][1])
-
-  if 1 < len(species):
-    SPECIES_NUMBER_2.config(text = SPECIES[species[1]][0])
-    SPECIES_DESCRIPTION_2.config(text = SPECIES[species[1]][1])
-  else:
-    SPECIES_NUMBER_2.config(text = "")
-    SPECIES_DESCRIPTION_2.config(text = "")
-
-  CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
-  CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
+  highlight_combos(piece_name)
 
 def add_button(window, button_click, piece, level, column, row):
   button = Button(window)
