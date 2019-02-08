@@ -1,3 +1,6 @@
+* version 0.5
+  - Add the combos-poicker.py script.
+
 * version 0.4
   - Add stars to indicate the cost of pieces and tier of items.
   - Make the color scheme lighter.

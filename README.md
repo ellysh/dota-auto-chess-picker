@@ -1,4 +1,4 @@
-# Dota Auto Chess Picker 0.4 version
+# Dota Auto Chess Picker 0.5 version
 
 Dota Auto Chess Picker is a utility to check combinations of pieces and items for the [Dota Auto Chess](https://steamcommunity.com/sharedfiles/filedetails/?id=1613886175) custom game.
 
@@ -62,6 +62,23 @@ Start the `items-picker.py` script and click on the item icon. The red color wil
 Let us consider the screenshot above. The select item is Maelstorm. You can combine it with Hyperstone for getting Mjollnir. So, Mjollnir is marked by the blue color.  You can get Maelstorm by the combination of Javelin and Mithril Hammer. Thus, these two items are highlighted by the green color.
 
 Stars under each item icon show its tier. The `U` letter means that this is an upgraded item.
+
+### Combos Picker
+
+The `combos-picker.py` script shows you combinations of pieces according to predefined strategies.
+
+![Combos Picker](images/readme/combos-picker-window.png)
+
+Start the script and click on the piece icon, which you have bought at the current round. The red color will highlight the selected piece. The green color will highlight all pieces which can make a combo with the selected one. You should follow the recommendation and click to the highlighted pieces when you buy them. Then you meet the recommended strategy.
+
+The strategies are defined in the `database/docs/Database.odt` file. These are steps to add your own strategy:
+
+1. Switch to the `COMBOS` sheet of the document.
+2. Add the name of your combo in the first column.
+3. Add comma separated pieces of your combo in the second column. Use pieces names from the `PIECES` sheet of the document.
+4. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `COMBOS` sheet to the `database/csv` directory with the `combos.csv` name. Use the `;` as a separator for CSV document.
+
+Now the `combos-picker.py` script will highlight your combo.
 
 ## Contacts
 
