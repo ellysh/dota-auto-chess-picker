@@ -38,11 +38,15 @@ def load_combos():
     for line in csv_reader:
       COMBOS.append(line[1])
 
-def reset_all_buttons():
+def reset_buttons(is_all):
   global BUTTONS
+  global CHOOSED_PIECES
+
+  if is_all:
+    CHOOSED_PIECES = []
 
   for key, value in BUTTONS.iteritems():
-    if BUTTONS[key][0].cget("bg") != _RED_COLOR:
+    if is_all or BUTTONS[key][0].cget("bg") != _RED_COLOR:
       value[0].config(bg = _DEFAULT_COLOR)
 
 def highlight_combo_pieces(combo):
@@ -68,7 +72,7 @@ def button_click(piece_name):
   global _RED_COLOR
   global CHOOSED_PIECES
 
-  reset_all_buttons()
+  reset_buttons(False)
 
   BUTTONS[piece_name][0].config(bg = _RED_COLOR)
   CHOOSED_PIECES.append(piece_name)
@@ -113,6 +117,8 @@ def make_window():
   window.title("Dota Auto Chess Combos Picker " + _VERSION)
 
   add_buttons(window)
+
+  window.bind('<Escape>', lambda event, a = True: reset_buttons(a))
 
   window.mainloop()
 
