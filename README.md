@@ -1,4 +1,4 @@
-# Dota Auto Chess Picker 0.5 version
+# Dota Auto Chess Picker 0.6 version
 
 Dota Auto Chess Picker is a utility to check combinations of pieces and items for the [Dota Auto Chess](https://steamcommunity.com/sharedfiles/filedetails/?id=1613886175) custom game.
 
@@ -48,6 +48,8 @@ The `pieces-picker.py` script shows you all combinations of the pieces depending
 ![Pieces Picker](images/readme/pieces-picker-window.png)
 
 Start the `pieces-picker.py` script and click on the piece icon. The green color will highlight all pieces of the same species. If the piece has second species, then corresponding pieces will be highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
+
+You will see a brief description of the piece's skill near the red box.
 
 Stars under each piece icon show its cost.
 

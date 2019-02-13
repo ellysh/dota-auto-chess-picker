@@ -1,3 +1,6 @@
+* version 0.6
+  - Add the description of the pieces skills.
+
 * version 0.5
   - Add the combos-poicker.py script.
 
