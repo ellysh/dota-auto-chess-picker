@@ -30,6 +30,8 @@ SPECIES_NUMBER_2 = None
 CLASS_DESCRIPTION = None
 CLASS_NUMBER = None
 
+SKILL_DESCRIPTION = None
+
 BUTTONS = {}
 
 def load_table(filename, table, max_column):
@@ -38,15 +40,15 @@ def load_table(filename, table, max_column):
     next(csv_file)
 
     for line in csv_reader:
-      if max_column == 3:
-        table[line[0]] = [line[1], line[2], line[3]]
+      if max_column == 4:
+        table[line[0]] = [line[1], line[2], line[3], line[4]]
       else:
         table[line[0]] = [line[1], line[2]]
 
 def load_pieces():
   global PIECES
 
-  load_table(_PIECES_FILE, PIECES, 3)
+  load_table(_PIECES_FILE, PIECES, 4)
 
 def load_species():
   global SPECIES
@@ -105,6 +107,7 @@ def button_click(piece_name):
   global SPECIES_NUMBER_2
   global CLASS_DESCRIPTION
   global CLASS_NUMBER
+  global SKILL_DESCRIPTION
   global PIECES
   global SPECIES
   global CLASSES
@@ -129,6 +132,8 @@ def button_click(piece_name):
 
   CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
   CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
+
+  SKILL_DESCRIPTION.config(text = PIECES[piece_name][3])
 
 def add_button(window, button_click, piece, level, column, row):
   button = Button(window)
@@ -168,10 +173,12 @@ def make_window():
   global SPECIES_NUMBER_2
   global CLASS_DESCRIPTION
   global CLASS_NUMBER
+  global SKILL_DESCRIPTION
   global _PURPLE_COLOR
   global _GREEN_COLOR
   global _YELLOW_COLOR
   global _AZURE_COLOR
+  global _RED_COLOR
 
   window = Tk()
 
@@ -216,6 +223,13 @@ def make_window():
 matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
     justify=LEFT)
   both_description.grid(column = 1, row = 15, columnspan = 10)
+
+  color5 = Label(window, bg = _RED_COLOR, width = 4, height = 1)
+  color5.grid(column = 0, row = 16)
+
+  SKILL_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
+                            wraplength=300, anchor=NW, justify=LEFT)
+  SKILL_DESCRIPTION.grid(column = 1, row = 16, columnspan = 10)
 
   window.mainloop()
 
