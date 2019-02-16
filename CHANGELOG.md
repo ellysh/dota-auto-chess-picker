@@ -1,3 +1,7 @@
+* version 0.7
+  - Make a separate document for strategies.
+  - Update the database according to the latest game changes.
+
 * version 0.6
   - Add the description of the pieces skills.
 
