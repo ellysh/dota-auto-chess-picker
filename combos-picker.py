@@ -6,7 +6,7 @@ from PIL import ImageTk,Image
 
 _VERSION = "0.6"
 _PIECES_FILE = "database/csv/pieces.csv"
-_COMBOS_FILE = "database/csv/combos.csv"
+_COMBOS_FILE = "database/csv/strategies.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
 _GREEN_COLOR = "#66ce54"
