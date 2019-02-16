@@ -12,6 +12,7 @@ Tier;Item;Bonus;Upgrades
 1;"Regen Ring";"+5 HP Regeneration";"Hood of Defiance"
 1;"Stout Shield";"Block 10 damage";Vanguard
 1;"Void Stone";"+50% Mana Regeneration on attacks";"Perseverance / Scythe Of Vyse"
+1;"Blink Dagger";"Move the piece to the farthest square of the board";
 2;"Broad Sword";"+20 Attack Damage";"Crystalys / Blade Mail"
 2;Javelin;"+15 Attack Damage";"Maelstrom / Monkey King Bar"
 2;"Mithril Hammer";"+15 Attack Damage";"Desolator / Maelstrom"
