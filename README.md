@@ -69,7 +69,7 @@ Stars under each item icon show its tier. The `U` letter means that this is an u
 
 The `strategy-picker.py` script shows you combinations of pieces according to predefined strategies.
 
-![Combos Picker](images/readme/combos-picker-window.png)
+![Strategy Picker](images/readme/strategy-picker-window.png)
 
 Start the script and click on the piece icon, which you have bought at the current round. The red color will highlight the selected piece. The green color will highlight all pieces which can make a combo with the selected one. You should follow the recommendation and click to the highlighted pieces when you buy them. Then you meet the recommended strategy.
 
