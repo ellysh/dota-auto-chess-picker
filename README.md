@@ -65,22 +65,22 @@ Let us consider the screenshot above. The select item is Maelstorm. You can comb
 
 Stars under each item icon show its tier. The `U` letter means that this is an upgraded item.
 
-### Combos Picker
+### Strategy Picker
 
-The `combos-picker.py` script shows you combinations of pieces according to predefined strategies.
+The `strategy-picker.py` script shows you combinations of pieces according to predefined strategies.
 
 ![Combos Picker](images/readme/combos-picker-window.png)
 
 Start the script and click on the piece icon, which you have bought at the current round. The red color will highlight the selected piece. The green color will highlight all pieces which can make a combo with the selected one. You should follow the recommendation and click to the highlighted pieces when you buy them. Then you meet the recommended strategy.
 
-The strategies are defined in the `database/docs/Database.odt` file. These are steps to add your own strategy:
+The strategies are defined in the `database/docs/Strategy.ods` file. These are steps to add your own strategy:
 
-1. Switch to the `COMBOS` sheet of the document.
-2. Add the name of your combo in the first column.
-3. Add comma separated pieces of your combo in the second column. Use pieces names from the `PIECES` sheet of the document.
-4. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `COMBOS` sheet to the `database/csv` directory with the `combos.csv` name. Use the `;` as a separator for CSV document.
+1. Open the document.
+2. Add the name of your strategy in the first column.
+3. Add comma separated pieces of your strategy in the second column. Use pieces names from the `PIECES` sheet of the `database/docs/Database.ods` document.
+4. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `Strategy.ods` document to the `database/csv` directory with the `strategies.csv` name. Use the `;` as a separator for CSV document.
 
-Now the `combos-picker.py` script will highlight your combo.
+Now the `strategy-picker.py` script highlights your strategy too.
 
 ## Contacts
 
