@@ -119,7 +119,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Combos Picker " + _VERSION)
+  window.title("Dota Auto Chess Strategy Picker " + _VERSION)
 
   add_buttons(window)
 
