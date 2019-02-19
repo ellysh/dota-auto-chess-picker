@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from Tkinter import *
+from tkinter import ttk
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -121,11 +122,23 @@ def make_window():
 
   window.title("Dota Auto Chess Strategy Picker " + _VERSION)
 
-  add_buttons(window)
+  notebook = ttk.Notebook(window)
+
+  earlygame_page = ttk.Frame(notebook)
+  notebook.add(earlygame_page, text="Earlygame")
+  add_buttons(earlygame_page)
+
+  midgame_page = ttk.Frame(notebook)
+  notebook.add(midgame_page, text="Midgame")
+
+  lategame_page = ttk.Frame(notebook)
+  notebook.add(lategame_page, text="Lategame")
+
+  notebook.pack(expand=1, fill="both")
 
   window.bind('<Escape>', lambda event, a = True: reset_buttons(a))
 
-  highlight_combos(CHOOSED_PIECES)
+  #highlight_combos(CHOOSED_PIECES)
 
   window.mainloop()
 
