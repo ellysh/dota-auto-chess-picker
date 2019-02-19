@@ -7,17 +7,12 @@ from PIL import ImageTk,Image
 
 _VERSION = "0.7"
 _PIECES_FILE = "database/csv/pieces.csv"
-_COMBOS_FILE = "database/csv/strategies.csv"
-
-_DEFAULT_COLOR = "#d9d9d9"
-_GREEN_COLOR = "#66ce54"
-_RED_COLOR = "#ff4f4f"
+_COMBOS_FILE = "database/csv/combos.csv"
 
 PIECES = {}
-COMBOS = []
-CHOOSED_PIECES = []
+COMBOS = {}
 
-BUTTONS = {}
+BUTTONS = []
 
 def load_pieces():
   global PIECES
@@ -37,83 +32,41 @@ def load_combos():
     next(csv_file)
 
     for line in csv_reader:
-      COMBOS.append(line[1])
+      if not line[1] in COMBOS.keys():
+        COMBOS[line[1]] = []
 
-def reset_buttons(is_all):
-  global BUTTONS
-  global CHOOSED_PIECES
+      COMBOS[line[1]].append([line[0], line[2], line[3], line[4]])
 
-  if is_all:
-    CHOOSED_PIECES = []
-
-  for key, value in BUTTONS.iteritems():
-    if is_all or BUTTONS[key][0].cget("bg") != _RED_COLOR:
-      value[0].config(bg = _DEFAULT_COLOR)
-
-def highlight_combo_pieces(combo):
-  global BUTTONS
-  global _GREEN_COLOR
-  global _RED_COLOR
-
-  for key, value in BUTTONS.iteritems():
-    if (key in combo) and BUTTONS[key][0].cget("bg") != _RED_COLOR:
-      value[0].config(bg = _GREEN_COLOR)
-
-def highlight_combos(pieces):
-  global COMBOS
-
-  for combo in COMBOS:
-    combo_set = set([x.strip() for x in combo.split(',')])
-
-    if set(pieces).issubset(combo_set):
-      highlight_combo_pieces(combo)
-
-def button_click(piece_name):
-  global BUTTONS
-  global CHOOSED_PIECES
-  global _RED_COLOR
-  global _DEFAULT_COLOR
-
-  reset_buttons(False)
-
-  if BUTTONS[piece_name][0].cget("bg") == _RED_COLOR:
-    BUTTONS[piece_name][0].config(bg = _DEFAULT_COLOR)
-    CHOOSED_PIECES.remove(piece_name)
-  else:
-    BUTTONS[piece_name][0].config(bg = _RED_COLOR)
-    CHOOSED_PIECES.append(piece_name)
-
-  highlight_combos(CHOOSED_PIECES)
-
-def add_button(window, button_click, piece, level, column, row):
+def add_button(window, piece, level, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open( \
                            "images/pieces/" + piece + ".png"))
 
-  button.config(image = img, command = lambda:button_click(piece), \
+  button.config(image = img, \
                 compound = TOP, text = '* ' * int(level), \
                 font=("Arial Bold", 5), pady = 0, padx = 0)
 
   return button, img
 
-def add_buttons(window):
+def add_combos(window, game_phase):
   global BUTTONS
   global PIECES
+  global COMBOS
 
   row = 0
-  column = 0
 
-  for key, value in PIECES.iteritems():
-    BUTTONS[key] = add_button(window, button_click, key, value[2], \
-                              column, row)
+  for combo in COMBOS[game_phase]:
+    pieces = [x.strip() for x in combo[3].split(',')]
 
-    column += 1
+    column = 0
+    for piece in pieces:
+        BUTTONS.append(add_button(window, piece, PIECES[piece][2], \
+                                  column, row))
+        column += 1
 
-    if 10 < column:
-      column = 0
-      row += 1
+    row += 1
 
 def make_window():
   global VERSION
@@ -126,13 +79,15 @@ def make_window():
 
   earlygame_page = ttk.Frame(notebook)
   notebook.add(earlygame_page, text="Earlygame")
-  add_buttons(earlygame_page)
+  add_combos(earlygame_page, "Earlygame")
 
   midgame_page = ttk.Frame(notebook)
   notebook.add(midgame_page, text="Midgame")
+  add_combos(midgame_page, "Midgame")
 
   lategame_page = ttk.Frame(notebook)
   notebook.add(lategame_page, text="Lategame")
+  add_combos(lategame_page, "Lategame")
 
   notebook.pack(expand=1, fill="both")
 
