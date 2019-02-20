@@ -184,52 +184,61 @@ def make_window():
 
   window.title("Dota Auto Chess Pieces Picker " + _VERSION)
 
-  add_buttons(window)
+  buttons_frame = Frame(height = 2, bd = 1, relief = GROOVE)
+  buttons_frame.pack(fill = BOTH, expand = True)
 
-  color1 = Label(window, bg = _GREEN_COLOR, width = 4, height = 1)
-  color1.grid(column = 0, row = 12)
+  add_buttons(buttons_frame)
 
-  SPECIES_NUMBER_1 = Label(window, font=("Arial Bold", 12))
-  SPECIES_NUMBER_1.grid(column = 1, row = 12, columnspan = 2)
+  info_frame = Frame(height = 2, bd = 1, relief = GROOVE)
+  info_frame.pack(fill = BOTH, expand = True)
 
-  SPECIES_DESCRIPTION_1 = Label(window, font=("Arial Bold", 12), \
+
+  color1 = Label(info_frame, bg = _GREEN_COLOR, width = 4, height = 1)
+  color1.grid(column = 0, row = 0)
+
+  color2 = Label(info_frame, bg = _YELLOW_COLOR, width = 4, height = 1)
+  color2.grid(column = 0, row = 1)
+
+  color3 = Label(info_frame, bg = _AZURE_COLOR, width = 4, height = 1)
+  color3.grid(column = 0, row = 2)
+
+  color4 = Label(info_frame, bg = _PURPLE_COLOR, width = 4, height = 1)
+  color4.grid(column = 0, row = 3)
+
+  color5 = Label(info_frame, bg = _RED_COLOR, width = 4, height = 1)
+  color5.grid(column = 0, row = 4)
+
+
+  SPECIES_NUMBER_1 = Label(info_frame, font=("Arial Bold", 12))
+  SPECIES_NUMBER_1.grid(column = 1, row = 0, sticky = W, padx = (10, 0))
+
+  SPECIES_NUMBER_2 = Label(info_frame, font=("Arial Bold", 12))
+  SPECIES_NUMBER_2.grid(column = 1, row = 1, sticky = W, padx = (10, 0))
+
+  CLASS_NUMBER = Label(info_frame, font=("Arial Bold", 12))
+  CLASS_NUMBER.grid(column = 1, row = 2, sticky = W, padx = (10, 0))
+
+
+  SPECIES_DESCRIPTION_1 = Label(info_frame, font=("Arial Bold", 12), \
                                 wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_1.grid(column = 3, row = 12, columnspan = 10)
+  SPECIES_DESCRIPTION_1.grid(column = 2, row = 0, sticky = W, padx = (10, 0))
 
-  color2 = Label(window, bg = _YELLOW_COLOR, width = 4, height = 1)
-  color2.grid(column = 0, row = 13)
-
-  SPECIES_NUMBER_2 = Label(window, font=("Arial Bold", 12))
-  SPECIES_NUMBER_2.grid(column = 1, row = 13, columnspan = 2)
-
-  SPECIES_DESCRIPTION_2 = Label(window, font=("Arial Bold", 12), \
+  SPECIES_DESCRIPTION_2 = Label(info_frame, font=("Arial Bold", 12), \
                                 wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_2.grid(column = 3, row = 13, columnspan = 10)
+  SPECIES_DESCRIPTION_2.grid(column = 2, row = 1, sticky = W, padx = (10, 0))
 
-  color3 = Label(window, bg = _AZURE_COLOR, width = 4, height = 1)
-  color3.grid(column = 0, row = 14)
-
-  CLASS_NUMBER = Label(window, font=("Arial Bold", 12))
-  CLASS_NUMBER.grid(column = 1, row = 14, columnspan = 2)
-
-  CLASS_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
+  CLASS_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
                             wraplength=300, anchor=NW, justify=LEFT)
-  CLASS_DESCRIPTION.grid(column = 3, row = 14, columnspan = 10)
+  CLASS_DESCRIPTION.grid(column = 2, row = 2, sticky = W, padx = (10, 0))
 
-  color4 = Label(window, bg = _PURPLE_COLOR, width = 4, height = 1)
-  color4.grid(column = 0, row = 15)
-
-  both_description = Label(window, text = "Both species and class \
+  both_description = Label(info_frame, text = "Both species and class \
 matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
     justify=LEFT)
-  both_description.grid(column = 1, row = 15, columnspan = 10)
+  both_description.grid(column = 2, row = 3, sticky = W, padx = (10, 0))
 
-  color5 = Label(window, bg = _RED_COLOR, width = 4, height = 1)
-  color5.grid(column = 0, row = 16)
-
-  SKILL_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
+  SKILL_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
                             wraplength=300, anchor=NW, justify=LEFT)
-  SKILL_DESCRIPTION.grid(column = 1, row = 16, columnspan = 10)
+  SKILL_DESCRIPTION.grid(column = 2, row = 4, sticky = W, padx = (10, 0))
 
   window.mainloop()
 
