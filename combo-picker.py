@@ -13,6 +13,7 @@ PIECES = {}
 COMBOS = {}
 
 BUTTONS = []
+WIDGETS = []
 
 def load_pieces():
   global PIECES
@@ -58,9 +59,14 @@ def add_combos(window, game_phase):
   row = 0
 
   for combo in COMBOS[game_phase]:
+    label = Label(window, font=("Arial Bold", 12), text = combo[1])
+    label.grid(column = 0, row = row)
+
+    WIDGETS.append(label)
+
     pieces = [x.strip() for x in combo[3].split(',')]
 
-    column = 0
+    column = 1
     for piece in pieces:
         BUTTONS.append(add_button(window, piece, PIECES[piece][2], \
                                   column, row))
