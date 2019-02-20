@@ -51,6 +51,9 @@ def add_button(window, piece, level, column, row):
 
   return button, img
 
+def sort_priority(val):
+  return val[0]
+
 def add_combos(window, game_phase):
   global BUTTONS
   global PIECES
@@ -58,7 +61,10 @@ def add_combos(window, game_phase):
 
   row = 0
 
-  for combo in COMBOS[game_phase]:
+  combos = COMBOS[game_phase]
+  combos.sort(key = sort_priority)
+
+  for combo in combos:
     label = Label(window, font=("Arial Bold", 12), text = combo[1])
     label.grid(column = 0, row = row)
 
