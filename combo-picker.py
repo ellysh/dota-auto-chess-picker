@@ -18,6 +18,7 @@ _RED_COLOR = "#ff4f4f"
 PIECES = {}
 COMBOS = {}
 
+PICKED_PIECES = set()
 BUTTONS = []
 WIDGETS = []
 
@@ -51,38 +52,54 @@ def reset_all_buttons():
   for button in BUTTONS:
     button[1].config(bg = _DEFAULT_COLOR)
 
-def highlight_piece(piece_name):
+def highlight_piece():
   global BUTTONS
   global _RED_COLOR
+  global PICKED_PIECES
+
+  if not PICKED_PIECES:
+    return
 
   for button in BUTTONS:
-    if button[0] == piece_name:
+    if button[0] in PICKED_PIECES:
       button[1].config(bg = _RED_COLOR)
 
-def highlight_species(piece_name):
+def highlight_species():
   global PIECES
   global BUTTONS
   global _GREEN_COLOR
+  global PICKED_PIECES
 
-  species = PIECES[piece_name][0].split('/')
+  if not PICKED_PIECES:
+    return
+
+  species = []
+  for piece in PICKED_PIECES:
+    species.extend(PIECES[piece][0].split('/'))
 
   for button in BUTTONS:
-    if species[0] in PIECES[button[0]][0] \
-       or (1 < len(species) and species[1] in PIECES[button[0]][0]):
+    button_species = PIECES[button[0]][0].split('/')
+
+    if not set(species).isdisjoint(button_species):
       button[1].config(bg = _GREEN_COLOR)
 
-def highlight_class(piece_name):
+def highlight_class():
   global PIECES
   global BUTTONS
   global _AZURE_COLOR
   global _PURPLE_COLOR
 
-  species = PIECES[piece_name][1].split('/')
+  if not PICKED_PIECES:
+    return
+
+  classes = []
+  for piece in PICKED_PIECES:
+    classes.extend(PIECES[piece][1].split('/'))
 
   for button in BUTTONS:
-    if species[0] in PIECES[button[0]][1] \
-       or (1 < len(species) and species[1] in PIECES[button[0]][1]):
+    button_classes =  PIECES[button[0]][1].split('/')
 
+    if not set(classes).isdisjoint(button_classes):
       if button[1].cget("bg") == _DEFAULT_COLOR:
         color = _AZURE_COLOR
       else:
@@ -90,14 +107,24 @@ def highlight_class(piece_name):
 
       button[1].config(bg = color)
 
+def add_remove_picked_piece(piece_name):
+  global PICKED_PIECES
+
+  if piece_name in PICKED_PIECES:
+    PICKED_PIECES.remove(piece_name)
+  else:
+    PICKED_PIECES.add(piece_name)
+
 def button_click(piece_name):
+  add_remove_picked_piece(piece_name)
+
   reset_all_buttons()
 
-  highlight_species(piece_name)
+  highlight_species()
 
-  highlight_class(piece_name)
+  highlight_class()
 
-  highlight_piece(piece_name)
+  highlight_piece()
 
 def add_button(window, piece, level, column, row):
   button = Button(window)
