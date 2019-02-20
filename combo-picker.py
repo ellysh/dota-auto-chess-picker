@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
+import ttk
 from Tkinter import *
-from tkinter import ttk
 from csv import reader
 from PIL import ImageTk,Image
 
