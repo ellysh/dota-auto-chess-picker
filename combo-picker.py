@@ -126,14 +126,19 @@ def add_combos(window, game_phase):
   combos.sort(key = sort_priority)
 
   for combo in combos:
-    label = Label(window, font=("Arial Bold", 12), text = combo[1])
-    label.grid(column = 0, row = row)
+    name_label = Label(window, font=("Arial Bold", 10), text = combo[1])
+    name_label.grid(column = 0, row = row)
 
-    WIDGETS.append(label)
+    WIDGETS.append(name_label)
+
+    line_label = Label(window, font=("Arial Bold", 10), text = combo[2])
+    line_label.grid(column = 1, row = row)
+
+    WIDGETS.append(line_label)
 
     pieces = [x.strip() for x in combo[3].split(',')]
 
-    column = 1
+    column = 2
     for piece in pieces:
         BUTTONS.append(add_button(window, piece, PIECES[piece][2], \
                                   column, row))
