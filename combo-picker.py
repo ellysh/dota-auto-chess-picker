@@ -13,7 +13,6 @@ _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
 _BLUE_COLOR = "#144593"
 _GREEN_COLOR = "#66ce54"
-_YELLOW_COLOR = "#f9ef31"
 _PURPLE_COLOR = "#8757f9"
 _RED_COLOR = "#ff4f4f"
 
@@ -61,8 +60,26 @@ def highlight_piece(piece_name):
     if button[0] == piece_name:
       button[1].config(bg = _RED_COLOR)
 
+def highlight_species(piece_name):
+  global PIECES
+  global BUTTONS
+  global _GREEN_COLOR
+
+  species = PIECES[piece_name][0].split('/')
+
+  for button in BUTTONS:
+    if species[0] in PIECES[button[0]][0] \
+       or (1 < len(species) and species[1] in PIECES[button[0]][0]):
+      button[1].config(bg = _GREEN_COLOR)
+
 def button_click(piece_name):
   reset_all_buttons()
+
+  highlight_species(piece_name)
+
+  #highlight_class(piece_name)
+
+  #highlight_species_and_class(piece_name)
 
   highlight_piece(piece_name)
 
