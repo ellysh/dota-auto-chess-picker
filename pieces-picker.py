@@ -184,12 +184,12 @@ def make_window():
 
   window.title("Dota Auto Chess Pieces Picker " + _VERSION)
 
-  buttons_frame = Frame(height = 2, bd = 1, relief = GROOVE)
+  buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   buttons_frame.pack(fill = BOTH, expand = True)
 
   add_buttons(buttons_frame)
 
-  info_frame = Frame(height = 2, bd = 1, relief = GROOVE)
+  info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   info_frame.pack(fill = BOTH, expand = True)
 
 
