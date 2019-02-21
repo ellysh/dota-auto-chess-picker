@@ -173,6 +173,14 @@ def add_combos(window, game_phase):
 
     row += 1
 
+def reset_picked_pieces():
+  global BUTTONS
+  global PICKED_PIECES
+
+  PICKED_PIECES = set()
+
+  reset_all_buttons()
+
 def make_window():
   global VERSION
 
@@ -196,7 +204,7 @@ def make_window():
 
   notebook.pack(expand=1, fill="both")
 
-  window.bind('<Escape>', lambda event, a = True: reset_buttons(a))
+  window.bind('<Escape>', lambda event: reset_picked_pieces())
 
   window.mainloop()
 
