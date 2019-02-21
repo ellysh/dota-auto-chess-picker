@@ -1,4 +1,4 @@
-* version 0.8
+* version 0.8 
   - Add the combo-picker.py script.
   - Rework the widgets geometry in the pieces-picker.py script.
 
