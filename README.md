@@ -1,4 +1,4 @@
-# Dota Auto Chess Picker 0.7 version
+# Dota Auto Chess Picker 0.8 version
 
 Dota Auto Chess Picker is a utility to check combinations of pieces and items for the [Dota Auto Chess](https://steamcommunity.com/sharedfiles/filedetails/?id=1613886175) custom game.
 
@@ -67,24 +67,47 @@ Stars under each item icon show its tier. The `U` letter means that this is an u
 
 ### Strategy Picker
 
-The `strategy-picker.py` script shows you combinations of pieces according to predefined strategies.
+The `strategy-picker.py` script shows you combinations of pieces according to predefined strategies. This script is recommended for new players who do not know all pieces well. It helps you to build whole combination of pieces according to recommended strategy.
 
 ![Strategy Picker](images/readme/strategy-picker-window.png)
 
 Start the script and click on the piece icon, which you have bought at the current round. The red color will highlight the selected piece. The green color will highlight all pieces which can make a combo with the selected one. You should follow the recommendation and click to the highlighted pieces when you buy them. Then you meet the recommended strategy.
 
-The strategies are defined in the `database/docs/Strategy.ods` file. These are steps to add your own strategy:
+The strategies are defined in the `database/docs/Strategy.ods` file. These are steps to add a new strategy:
 
 1. Open the document.
 2. Add the name of your strategy in the first column.
 3. Add comma separated pieces of your strategy in the second column. Use pieces names from the `PIECES` sheet of the `database/docs/Database.ods` document.
 4. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `Strategy.ods` document to the `database/csv` directory with the `strategies.csv` name. Use the `;` as a separator for CSV document.
 
-Now the `strategy-picker.py` script highlights your strategy too.
+Now the `strategy-picker.py` script highlights your strategy.
+
+### Combo Picker
+
+The `combo-picker.py` script shows you strong combinations of pieces for each phase of the game. This script is recommended for advanced players.
+
+![Combo Picker](images/readme/combo-picker-window.png)
+
+You see three tabs when starting the script: "Earlygame", "Midgame" and "Lategame". On each tab, there are lines with recommended combos. There are three columns: name of the combo, preferred line for pieces in this combo ("Front", "Back", "Mixed") and icons of pieces in this combo.
+
+When you buy pieces of the specific combo you can press on corresponding icons. Then these pieces will be highlighted by the red color in all combos on all tabs. So, you can continue building your strategy considering the pieces which you already bought.
+
+Also, the green color will highlight all pieces with the same species as pieces which you already bought. The same way, blue color highlight all pieces with the same classes.
+
+The combos are defined in the `database/docs/Combos.ods` file. These are steps to add a new combo:
+
+1. Open the document.
+2. Add priority of your combo in the first column.
+3. Add game phase of the combo in the second column.
+4. Add the name of combo in the third column.
+5. Add comma separated pieces of your combo in the fourth column. Use pieces names from the `PIECES` sheet of the `database/docs/Database.ods` document.
+6. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `Combos.ods` document to the `database/csv` directory with the `combos.csv` name. Use the `;` as a separator for CSV document.
+
+Now the `combo-picker.py` script shows your combo.
 
 ## Contacts
 
-You can ask any questions about usage of Dota Auto Chess Picker via email petrsum@gmail.com.
+If you have any suggestions, bug reports or questions about usage of Dota Auto Chess Picker, please contact me via email petrsum@gmail.com.
 
 ## License
 
