@@ -111,11 +111,17 @@ def make_window():
 
   window.title("Dota Auto Chess Items Picker " + _VERSION)
 
-  add_buttons(window)
+  buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
+  buttons_frame.pack(fill = BOTH, expand = True)
 
-  ITEM_DESCRIPTION = Label(window, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  ITEM_DESCRIPTION.grid(column = 0, row = 8, columnspan = 6)
+  add_buttons(buttons_frame)
+
+  info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
+  info_frame.pack(fill = BOTH, expand = True)
+
+  ITEM_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
+                                wraplength=400, anchor=NW, justify=LEFT)
+  ITEM_DESCRIPTION.grid(column = 0, row = 0, sticky = W, padx = (30, 0))
 
   window.mainloop()
 
