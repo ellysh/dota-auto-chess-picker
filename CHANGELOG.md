@@ -1,4 +1,8 @@
-* version 0.8 
+* version 0.9
+  - Highlight the duplicated items in the item receipt by the yellow color.
+  - Rework widgets geometry in the items-picker.py script.
+
+* version 0.8
   - Add the combo-picker.py script.
   - Rework the widgets geometry in the pieces-picker.py script.
 
