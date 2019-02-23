@@ -10,6 +10,7 @@ _ITEMS_FILE = "database/csv/items.csv"
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
 _GREEN_COLOR = "#66ce54"
+_YELLOW_COLOR = "#f9ef31"
 _RED_COLOR = "#ff4f4f"
 
 ITEMS = {}
@@ -36,27 +37,33 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_components(upgrade_name):
+def highlight_components(item_name):
   global ITEMS
   global _GREEN_COLOR
+  global _YELLOW_COLOR
   global _RED_COLOR
 
-  for key, value in ITEMS.iteritems():
-    upgrades = [upgrade.strip() for upgrade in ITEMS[key][1].split('/')]
+  components = [component.strip() for component in ITEMS[item_name][1].split(',')]
 
-    if upgrade_name in upgrades and BUTTONS[key][0].cget("bg") != _RED_COLOR:
-      BUTTONS[key][0].config(bg = _GREEN_COLOR)
+  if not components:
+    return
 
-def highlight_items(item_name):
+  for component in components:
+    if not component:
+      continue
+
+    if BUTTONS[component][0].cget("bg") == _GREEN_COLOR:
+      BUTTONS[component][0].config(bg = _YELLOW_COLOR)
+    elif BUTTONS[component][0].cget("bg") != _RED_COLOR:
+      BUTTONS[component][0].config(bg = _GREEN_COLOR)
+
+def highlight_upgrades(item_name):
   global ITEMS
   global _AZURE_COLOR
 
-  upgrades = [upgrade.strip() for upgrade in ITEMS[item_name][1].split('/')]
-  for key, value in BUTTONS.iteritems():
-    if key in upgrades:
-      value[0].config(bg = _AZURE_COLOR)
-
-  highlight_components(item_name)
+  for key, value in ITEMS.iteritems():
+    if item_name in value[1] and BUTTONS[key][0].cget("bg") != _RED_COLOR:
+      BUTTONS[key][0].config(bg = _AZURE_COLOR)
 
 def button_click(item_name):
   global BUTTONS
@@ -70,7 +77,9 @@ def button_click(item_name):
 
   ITEM_DESCRIPTION.config(text = ITEMS[item_name][0])
 
-  highlight_items(item_name)
+  highlight_components(item_name)
+
+  highlight_upgrades(item_name)
 
 def add_button(window, handler, item_name, tier, column, row):
   button = Button(window)
