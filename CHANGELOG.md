@@ -1,3 +1,6 @@
+* version 1.0
+  - Add new pieces and species according to the 26.02.2019 patch.
+
 * version 0.9
   - Highlight the duplicated items in the item receipt by the yellow color.
   - Rework widgets geometry in the items-picker.py script.

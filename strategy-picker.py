@@ -4,7 +4,7 @@ from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "0.9"
+_VERSION = "1.0"
 _PIECES_FILE = "database/csv/pieces.csv"
 _COMBOS_FILE = "database/csv/strategies.csv"
 
