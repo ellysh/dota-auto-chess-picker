@@ -30,6 +30,9 @@ Tier;Item;Bonus;Components
 4;"Sacred Relic";"+50 Attack Damage";
 U;"Assault Cuirass";"Aura: +10 Armor, +15 Attack Speed for adjacent allies
 Aura: -10 Armor, -15 Attack Speed for adjacent enemies";"Hyperstone, Chain Mail, Plate Mail "
+U;"Battle Fury";"+30 Attack damage, melee attacks deal 50% cleave damage in a range of 2 grids
++10 HP regeneration
++100% mana gained by dealing damage ";"Perseverance, Demon Edge"
 U;"Blade Mail";"+5 Armor, +10 Attack Damage
 Deals 20% damage taken to attacker";"Broad Sword, Chain Mail"
 U;Crystalys;"+15 Attack Damage
