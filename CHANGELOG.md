@@ -1,3 +1,8 @@
+* version 1.1
+  - Add new pieces and species according to the 29.03.2019 patch.
+  - Fix combos and strategies.
+  - Remove deactivated pieces: Riki, SandKing, Slark.
+
 * version 1.0
   - Add new pieces and species according to the 26.02.2019 patch.
 

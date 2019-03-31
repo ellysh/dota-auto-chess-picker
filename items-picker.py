@@ -4,7 +4,7 @@ from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "1.0"
+_VERSION = "1.1"
 _ITEMS_FILE = "database/csv/items.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
