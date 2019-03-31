@@ -26,6 +26,7 @@ Lina;Human;Mage;3;"nuke, unit, magical"
 "Lone Druid";Beast;Druid;4;summon
 Luna;Elf;Knight;2;"buff, self, chain attack"
 Lycan;Human/Beast;Warrior;3;"buff, self, health / summon"
+Mars;God;Warrior;1;"buff, self, shield / nuke, area, physical"
 Medusa;Naga;Hunter;4;"stun, area / debuff, area, bonus physical damage"
 Mirana;Elf;Hunter;2;"nuke, unit, magical / stun, unit"
 Morphling;Element;Assassin;2;"nuke, line, magical"
@@ -54,3 +55,4 @@ Venomancer;Beast;Warlock;3;summon
 Viper;Dragon;Assassin;3;"dot, unit, magical / debuff, unit, attack speed"
 "Wind Ranger";Elf;Hunter;3;"nuke, line, magical"
 "Witch Doctor";Troll;Warlock;2;"nuke, chain, magical / stun, area"
+Zeus;God;Mage;5;"nuke, unit, magical / nuke, courier, magical"
