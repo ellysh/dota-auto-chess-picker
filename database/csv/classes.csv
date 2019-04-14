@@ -9,5 +9,5 @@ Hunter;"3, 6";"Base damage increased by 30 / 40 and 30% / 40% to pierce through 
 Mage;"3, 6";"Magic resistance decreased by 35 / 45 for all enemies."
 Mech;"2, 4";"HP regeneration increased by 15 / 25 for all friendly mechs."
 Shaman;2;"Hex an enemy when battle starts."
-Warlock;"3, 6";"Lifesteal increased by 20% / 30% for all allies."
+Warlock;"3, 6";"Lifesteal increased by 15% / 25% for all allies."
 Warrior;"3, 6, 9";"Armor increased by 5 / 7 / 9 for all friendly warriors."
