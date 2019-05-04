@@ -21,7 +21,7 @@ https://www.python.org/downloads/release/python-373/
 `python get-pip.py`
 
 4. Install Dota Auto Chess Picker:<br/>
-`python -m pip install --user dota2picker`
+`python -m pip install --user dac-picker`
 
 This is an alternative way to install dac-picker from github repository:
 
@@ -54,7 +54,7 @@ These are steps to install dac-picker on Linux:
 `sudo apt-get install python3-pip`
 
 4. Install Dota Auto Chess Picker:<br/>
-`pip3 install dota2picker`
+`pip3 install dac-picker`
 
 Dac-picker will be installed to the `/usr/local/bin/` directory.
 
