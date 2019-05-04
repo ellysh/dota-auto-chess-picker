@@ -1,3 +1,8 @@
 *.ods#
+*.pyc
+build/
+dist/
+dac_picker.egg-info/
+dac_picker/__pycache__/
 launch.sh
 build.sh
