@@ -1,3 +1,7 @@
+* version 1.2
+  - Switch scripts to Python 3.
+  - Fix the database according to the latest DAC patches.
+
 * version 1.1
   - Add new pieces and species according to the 29.03.2019 patch.
   - Fix combos and strategies.

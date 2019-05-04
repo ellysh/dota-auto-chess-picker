@@ -4,7 +4,7 @@ from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "1.1"
+_VERSION = "1.2"
 _PIECES_FILE = "database/csv/pieces.csv"
 _SPECIES_FILE = "database/csv/species.csv"
 _CLASSES_FILE = "database/csv/classes.csv"

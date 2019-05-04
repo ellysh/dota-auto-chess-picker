@@ -4,7 +4,7 @@ from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "1.1"
+_VERSION = "1.2"
 _ITEMS_FILE = "database/csv/items.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
