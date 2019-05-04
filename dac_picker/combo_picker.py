@@ -74,7 +74,7 @@ def highlight_class():
         classes.extend(PIECES[piece][1].split('/'))
 
     for button in BUTTONS:
-        button_classes =  PIECES[button[0]][1].split('/')
+        button_classes = PIECES[button[0]][1].split('/')
 
         if not set(classes).isdisjoint(button_classes):
             if button[1].cget("bg") == _DEFAULT_COLOR:
@@ -82,7 +82,7 @@ def highlight_class():
             else:
                 color = _PURPLE_COLOR
 
-        button[1].config(bg = color)
+            button[1].config(bg = color)
 
 
 def add_remove_picked_piece(piece_name):
