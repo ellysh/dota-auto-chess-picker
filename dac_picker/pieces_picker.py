@@ -6,6 +6,7 @@ from pkg_resources import resource_filename
 from .version import VERSION
 from .database import Csv
 
+
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
 _BLUE_COLOR = "#144593"
@@ -119,8 +120,8 @@ def add_button(window, button_click, piece, level, column, row):
 
     img = ImageTk.PhotoImage(Image.open(resource))
 
-    button.config(image = img, command = lambda:button_click(piece), \
-                  compound = "top", text = '* ' * int(level), \
+    button.config(image = img, command = lambda:button_click(piece),
+                  compound = "top", text = '* ' * int(level),
                   font=("Arial Bold", 5), pady = 0, padx = 0)
 
     return button, img
@@ -225,6 +226,7 @@ def make_window():
 
     window.mainloop()
 
+
 def main():
     global PIECES
     global SPECIES
@@ -237,6 +239,7 @@ def main():
     CLASSES = Csv.load("database/csv/classes.csv", 2)
 
     make_window()
+
 
 if __name__ == '__main__':
   main()

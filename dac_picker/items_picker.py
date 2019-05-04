@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 from tkinter import Tk, Label, Button, Frame
-from csv import reader
 from PIL import ImageTk,Image
+from pkg_resources import resource_filename
 from .version import VERSION
+from .database import Csv
 
-_ITEMS_FILE = "database/csv/items.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
@@ -18,126 +18,128 @@ BUTTONS = {}
 
 ITEM_DESCRIPTION = None
 
-def load_table(filename, table):
-  with open(filename) as csv_file:
-    csv_reader = reader(csv_file, delimiter=';')
-    next(csv_file)
-
-    for line in csv_reader:
-      table[line[1]] = [line[2], line[3], line[0]]
-
-def load_items():
-  global ITEMS
-
-  load_table(_ITEMS_FILE, ITEMS)
 
 def reset_all_buttons():
-  global BUTTONS
+    global BUTTONS
 
-  for key, value in BUTTONS.items():
-    value[0].config(bg = _DEFAULT_COLOR)
+    for key, value in BUTTONS.items():
+      value[0].config(bg = _DEFAULT_COLOR)
+
 
 def highlight_components(item_name):
-  global ITEMS
-  global _GREEN_COLOR
-  global _YELLOW_COLOR
-  global _RED_COLOR
+    global ITEMS
+    global _GREEN_COLOR
+    global _YELLOW_COLOR
+    global _RED_COLOR
 
-  components = [component.strip() for component in ITEMS[item_name][1].split(',')]
+    components = [component.strip() for component in ITEMS[item_name][1].split(',')]
 
-  if not components:
-    return
+    if not components:
+        return
 
-  for component in components:
-    if not component:
-      continue
+    for component in components:
+        if not component:
+            continue
 
-    if BUTTONS[component][0].cget("bg") == _GREEN_COLOR:
-      BUTTONS[component][0].config(bg = _YELLOW_COLOR)
-    elif BUTTONS[component][0].cget("bg") != _RED_COLOR:
-      BUTTONS[component][0].config(bg = _GREEN_COLOR)
+        if BUTTONS[component][0].cget("bg") == _GREEN_COLOR:
+            BUTTONS[component][0].config(bg = _YELLOW_COLOR)
+        elif BUTTONS[component][0].cget("bg") != _RED_COLOR:
+            BUTTONS[component][0].config(bg = _GREEN_COLOR)
+
 
 def highlight_upgrades(item_name):
-  global ITEMS
-  global _AZURE_COLOR
+    global ITEMS
+    global _AZURE_COLOR
 
-  for key, value in ITEMS.items():
-    if item_name in value[1] and BUTTONS[key][0].cget("bg") != _RED_COLOR:
-      BUTTONS[key][0].config(bg = _AZURE_COLOR)
+    for key, value in ITEMS.items():
+        if item_name in value[1] and BUTTONS[key][0].cget("bg") != _RED_COLOR:
+            BUTTONS[key][0].config(bg = _AZURE_COLOR)
+
 
 def button_click(item_name):
-  global BUTTONS
-  global ITEMS
-  global ITEM_DESCRIPTION
-  global _RED_COLOR
+    global BUTTONS
+    global ITEMS
+    global ITEM_DESCRIPTION
+    global _RED_COLOR
 
-  reset_all_buttons()
+    reset_all_buttons()
 
-  BUTTONS[item_name][0].config(bg = _RED_COLOR)
+    BUTTONS[item_name][0].config(bg = _RED_COLOR)
 
-  ITEM_DESCRIPTION.config(text = ITEMS[item_name][0])
+    ITEM_DESCRIPTION.config(text = ITEMS[item_name][0])
 
-  highlight_components(item_name)
+    highlight_components(item_name)
 
-  highlight_upgrades(item_name)
+    highlight_upgrades(item_name)
+
 
 def add_button(window, handler, item_name, tier, column, row):
-  button = Button(window)
-  button.grid(column = column, row = row)
+    button = Button(window)
+    button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open("images/items/" + item_name + ".png"))
-  tier_text = "* " * int(tier) if tier.isdigit() else tier
+    resource = resource_filename("dac_picker",
+        "images/items/" + item_name + ".png")
 
-  button.config(image = img, command = lambda:handler(item_name), \
-                compound = "top", text = tier_text, font=("Arial Bold", 5), \
-                pady = 0, padx = 0)
+    img = ImageTk.PhotoImage(Image.open(resource))
+    tier_text = "* " * int(tier) if tier.isdigit() else tier
 
-  return button, img
+    button.config(image = img, command = lambda:handler(item_name),
+        compound = "top", text = tier_text, font=("Arial Bold", 5),
+        pady = 0, padx = 0)
+
+    return button, img
+
 
 def add_buttons(window):
-  global BUTTONS
-  global ITEMS
+    global BUTTONS
+    global ITEMS
 
-  row = 0
-  column = 0
+    row = 0
+    column = 0
 
-  for key, value in sorted(ITEMS.items()):
-    BUTTONS[key] = add_button(window, button_click, key, value[2], \
-                              column, row)
+    for key, value in sorted(ITEMS.items()):
+        BUTTONS[key] = add_button(window, button_click, key, value[2],
+            column, row)
 
-    column += 1
+        column += 1
 
-    if 6 < column:
-      column = 0
-      row += 1
+        if 6 < column:
+            column = 0
+            row += 1
+
 
 def make_window():
-  global VERSION
-  global BUTTONS
-  global ITEM_DESCRIPTION
+    global VERSION
+    global BUTTONS
+    global ITEM_DESCRIPTION
 
-  window = Tk()
+    window = Tk()
 
-  window.title("Dota Auto Chess Items Picker " + VERSION)
+    window.title("Dota Auto Chess Items Picker " + VERSION)
 
-  buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
-  buttons_frame.pack(fill = "both", expand = True)
+    buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
+    buttons_frame.pack(fill = "both", expand = True)
 
-  add_buttons(buttons_frame)
+    add_buttons(buttons_frame)
 
-  info_frame = Frame(height = 2, bd = 1, relief = "sunken")
-  info_frame.pack(fill = "both", expand = True)
+    info_frame = Frame(height = 2, bd = 1, relief = "sunken")
+    info_frame.pack(fill = "both", expand = True)
 
-  ITEM_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=400, anchor="nw", justify="left")
-  ITEM_DESCRIPTION.grid(column = 0, row = 0, sticky = 'W', padx = (30, 0))
+    ITEM_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12),
+        wraplength=400, anchor="nw", justify="left")
 
-  window.mainloop()
+    ITEM_DESCRIPTION.grid(column = 0, row = 0, sticky = 'W', padx = (30, 0))
+
+    window.mainloop()
+
 
 def main():
-  load_items()
+    global ITEMS
 
-  make_window()
+    ITEMS = Csv.load("database/csv/items.csv", 3)
+
+    make_window()
+
 
 if __name__ == '__main__':
   main()
