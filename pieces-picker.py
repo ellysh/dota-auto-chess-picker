@@ -130,8 +130,9 @@ def button_click(piece_name):
     SPECIES_NUMBER_2.config(text = "")
     SPECIES_DESCRIPTION_2.config(text = "")
 
-  CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
-  CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
+  if PIECES[piece_name][1] in CLASSES.keys():
+      CLASS_NUMBER.config(text = CLASSES[PIECES[piece_name][1]][0])
+      CLASS_DESCRIPTION.config(text = CLASSES[PIECES[piece_name][1]][1])
 
   SKILL_DESCRIPTION.config(text = PIECES[piece_name][3])
 
