@@ -1,4 +1,7 @@
-* version 1.3
+* version 1.3.1
+  - Bugfix.
+
+* version 1.3.0
   - Pack the scripts for PyPi.
 
 * version 1.2
