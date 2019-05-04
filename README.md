@@ -6,7 +6,7 @@ A current development state is available in the [`CHANGELOG.md`](CHANGELOG.md) f
 
 ## Installation
 
-You need two Python 2.7, Tkinter and pillow modules to launch the Dota Auto Chess Picker.
+You need two Python 3, Tkinter and Pillow modules to launch the Dota Auto Chess Picker.
 
 ### Windows
 
@@ -15,10 +15,10 @@ These are steps to install Python and required modules on Windows:
 1. Download the archive with Dota Auto Chess Picker and extract it:<br/>
 https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
 
-2. Download the Python 2.7 distribution:<br/>
-https://www.python.org/downloads/release/python-2715/
+2. Download the Python 3 distribution:<br/>
+https://www.python.org/downloads/release/python-373/
 
-3. Install Python 2.7.
+3. Install Python 3.
 
 4. Install the pip utility with the following command in the command line:<br/>
 `python get-pip.py`
@@ -26,18 +26,21 @@ https://www.python.org/downloads/release/python-2715/
 5. Install the `pillow` module:<br/>
 `pip install pillow`
 
-### Linux
+### Ubuntu
 
 These are steps to install Python and required modules on Linux:
 
 1. Download the archive with Dota Auto Chess Picker and extract it:<br/>
 https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
 
-2. Install the Tkinter module:<br/>
-`sudo apt-get install python-tk`
+2. Install the Python 3:<br/>
+`sudo apt-get install python3`
 
-3. Install the `pillow` module:<br/>
-`pip install pillow`
+3. Install the Tkinter module:<br/>
+`sudo apt-get install python3-tk`
+
+4. Install the `pillow` module:<br/>
+`sudo apt-get install python3-pil.imagetk`
 
 ## Usage
 
