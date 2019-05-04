@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-import ttk
-from Tkinter import *
+from tkinter import ttk, Tk, Label, Button
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -134,7 +133,7 @@ def add_button(window, piece, level, column, row):
                            "images/pieces/" + piece + ".png"))
 
   button.config(image = img, command = lambda:button_click(piece), \
-                compound = TOP, text = '* ' * int(level), \
+                compound = "top", text = '* ' * int(level), \
                 font=("Arial Bold", 5), pady = 0, padx = 0)
 
   return [piece, button, img]
