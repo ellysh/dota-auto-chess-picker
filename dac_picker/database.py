@@ -44,3 +44,21 @@ class Csv(object):
                     result[line[0]] = [line[1], line[2]]
 
         return result
+
+    @staticmethod
+    def load_combos(file):
+        copy_resource_file(resource_filename("dac_picker", file))
+
+        result = {}
+        with open(get_filename(file)) as csv_file:
+            csv_reader = reader(csv_file, delimiter=';')
+            # Skip the columns headers
+            next(csv_reader)
+
+            for line in csv_reader:
+                if not line[1] in result.keys():
+                    result[line[1]] = []
+
+                result[line[1]].append([line[0], line[2], line[3], line[4]])
+
+        return result
