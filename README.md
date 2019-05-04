@@ -65,23 +65,6 @@ Let us consider the screenshot above. The select item is Maelstorm. You can comb
 
 Stars under each item icon show its tier. The `U` letter means that this is an upgraded item.
 
-### Strategy Picker
-
-The `strategy-picker.py` script shows you combinations of pieces according to predefined strategies. This script is recommended for new players who do not know all pieces well. It helps you to follow one strong strategy.
-
-![Strategy Picker](images/readme/strategy-picker-window.png)
-
-Start the script and click on the piece icon, which you have bought at the current round. The red color highlights the selected piece. The green color highlights all pieces which can make a combo with the selected one. You should follow the recommendation and click to the highlighted pieces when you buy them. You choice defines the following recommendations.
-
-The strategies are defined in the `database/docs/Strategy.ods` file. These are steps to add a new strategy:
-
-1. Open the document.
-2. Add the name of your strategy in the first column.
-3. Add comma separated pieces of your strategy in the second column. Use pieces names from the `PIECES` sheet of the `database/docs/Database.ods` document.
-4. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `Strategy.ods` document to the `database/csv` directory with the `strategies.csv` name. Use the `;` as a separator for CSV document.
-
-Now the `strategy-picker.py` script highlights your strategy.
-
 ### Combo Picker
 
 The `combo-picker.py` script shows you strong combinations of pieces for each phase of the game. Using these combinations you can build your own strategy. This script is recommended for advanced players.
