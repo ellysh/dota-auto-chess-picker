@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from Tkinter import *
+from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -34,7 +34,7 @@ def load_items():
 def reset_all_buttons():
   global BUTTONS
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     value[0].config(bg = _DEFAULT_COLOR)
 
 def highlight_components(item_name):
@@ -61,7 +61,7 @@ def highlight_upgrades(item_name):
   global ITEMS
   global _AZURE_COLOR
 
-  for key, value in ITEMS.iteritems():
+  for key, value in ITEMS.items():
     if item_name in value[1] and BUTTONS[key][0].cget("bg") != _RED_COLOR:
       BUTTONS[key][0].config(bg = _AZURE_COLOR)
 
@@ -89,7 +89,7 @@ def add_button(window, handler, item_name, tier, column, row):
   tier_text = "* " * int(tier) if tier.isdigit() else tier
 
   button.config(image = img, command = lambda:handler(item_name), \
-                compound = TOP, text = tier_text, font=("Arial Bold", 5), \
+                compound = "top", text = tier_text, font=("Arial Bold", 5), \
                 pady = 0, padx = 0)
 
   return button, img
@@ -101,7 +101,7 @@ def add_buttons(window):
   row = 0
   column = 0
 
-  for key, value in ITEMS.iteritems():
+  for key, value in ITEMS.items():
     BUTTONS[key] = add_button(window, button_click, key, value[2], \
                               column, row)
 
@@ -120,17 +120,17 @@ def make_window():
 
   window.title("Dota Auto Chess Items Picker " + _VERSION)
 
-  buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
-  buttons_frame.pack(fill = BOTH, expand = True)
+  buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
+  buttons_frame.pack(fill = "both", expand = True)
 
   add_buttons(buttons_frame)
 
-  info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
-  info_frame.pack(fill = BOTH, expand = True)
+  info_frame = Frame(height = 2, bd = 1, relief = "sunken")
+  info_frame.pack(fill = "both", expand = True)
 
   ITEM_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=400, anchor=NW, justify=LEFT)
-  ITEM_DESCRIPTION.grid(column = 0, row = 0, sticky = W, padx = (30, 0))
+                                wraplength=400, anchor="nw", justify="left")
+  ITEM_DESCRIPTION.grid(column = 0, row = 0, sticky = 'W', padx = (30, 0))
 
   window.mainloop()
 
