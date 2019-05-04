@@ -101,7 +101,7 @@ def add_buttons(window):
   row = 0
   column = 0
 
-  for key, value in ITEMS.items():
+  for key, value in sorted(ITEMS.items()):
     BUTTONS[key] = add_button(window, button_click, key, value[2], \
                               column, row)
 
