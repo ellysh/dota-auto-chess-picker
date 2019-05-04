@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
 from tkinter import Tk, Label, Button, Frame
-from csv import reader
 from PIL import ImageTk,Image
+from pkg_resources import resource_filename
 from .version import VERSION
-
-_PIECES_FILE = "database/csv/pieces.csv"
-_SPECIES_FILE = "database/csv/species.csv"
-_CLASSES_FILE = "database/csv/classes.csv"
+from .database import Csv
 
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
@@ -33,17 +30,6 @@ CLASS_NUMBER = None
 SKILL_DESCRIPTION = None
 
 BUTTONS = {}
-
-def load_table(filename, table, max_column):
-  with open(filename) as csv_file:
-    csv_reader = reader(csv_file, delimiter=';')
-    next(csv_file)
-
-    for line in csv_reader:
-      if max_column == 4:
-        table[line[0]] = [line[1], line[2], line[3], line[4]]
-      else:
-        table[line[0]] = [line[1], line[2]]
 
 def load_pieces():
   global PIECES
@@ -137,17 +123,18 @@ def button_click(piece_name):
   SKILL_DESCRIPTION.config(text = PIECES[piece_name][3])
 
 def add_button(window, button_click, piece, level, column, row):
-  button = Button(window)
-  button.grid(column = column, row = row)
+    button = Button(window)
+    button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open( \
-                           "images/pieces/" + piece + ".png"))
+    resource = resource_filename("dac_picker", "images/pieces/" + piece + ".png")
 
-  button.config(image = img, command = lambda:button_click(piece), \
-                compound = "top", text = '* ' * int(level), \
-                font=("Arial Bold", 5), pady = 0, padx = 0)
+    img = ImageTk.PhotoImage(Image.open(resource))
 
-  return button, img
+    button.config(image = img, command = lambda:button_click(piece), \
+                  compound = "top", text = '* ' * int(level), \
+                  font=("Arial Bold", 5), pady = 0, padx = 0)
+
+    return button, img
 
 def add_buttons(window):
   global BUTTONS
@@ -244,13 +231,17 @@ matches", font=("Arial Bold", 12), wraplength=300, anchor="nw", \
   window.mainloop()
 
 def main():
-  load_pieces()
+    global PIECES
+    global SPECIES
+    global CLASSES
 
-  load_species()
+    PIECES = Csv.load("database/csv/pieces.csv", 4)
 
-  load_classes()
+    SPECIES = Csv.load("database/csv/species.csv", 2)
 
-  make_window()
+    CLASSES = Csv.load("database/csv/classes.csv", 2)
+
+    make_window()
 
 if __name__ == '__main__':
   main()
