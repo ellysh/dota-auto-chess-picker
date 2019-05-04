@@ -21,7 +21,7 @@ Priority;"Game Phase";Name;Line;Pieces
 4;Midgame;Demon;Mixed;"Anti-Mage, Terrorblade, Pain Queen, Shadow Fiend, Chaos Knight, Doom"
 3;Midgame;Demon;Back;Terrorblade
 3;Midgame;Mage;Back;"Light Keeper, Razor, Shadow Fiend"
-3;Midgame;Undead;Mixed;"Drow Ranger, Abaddon, Necrophos, Death Prophet, Lich"
+3;Midgame;Undead;Mixed;"Drow Ranger, Abaddon, Necrophos, Death Prophet"
 3;Midgame;Beast;Mixed;"Lone Druid, Enchantress, Tusk, Venomancer, Lycan"
 3;Midgame;Elf;Back;"Templar Assassin, Phantom Assassin, Wind Ranger, Treant Protector"
 4;Midgame;Warlock;Back;"Witch Doctor, Venomancer, Shadow Fiend"
@@ -31,4 +31,4 @@ Priority;"Game Phase";Name;Line;Pieces
 3;Lategame;Element;Mixed;"Tiny, Razor, Morphling, Enigma"
 2;Lategame;Orc;Back;Disruptor
 1;Lategame;Naga;Front;"Tide Hunter, Medusa"
-1;Lategame;Mage;Back;"Lich, Zeus"
+1;Lategame;Mage;Back;Zeus
