@@ -1,3 +1,6 @@
+* version 1.3
+  - Pack the scripts for PyPi.
+
 * version 1.2
   - Switch scripts to Python 3.
   - Fix the database according to the latest DAC patches.
