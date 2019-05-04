@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from Tkinter import *
+from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -63,7 +63,7 @@ def load_classes():
 def reset_all_buttons():
   global BUTTONS
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     value[0].config(bg = _DEFAULT_COLOR)
 
 def highlight_similarity(piece_name, index, first_color, second_color):
@@ -72,7 +72,7 @@ def highlight_similarity(piece_name, index, first_color, second_color):
 
   similarity_list = PIECES[piece_name][index].split('/')
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     check_similarity_list = PIECES[key][index].split('/')
 
     if key != piece_name:
@@ -144,7 +144,7 @@ def add_button(window, button_click, piece, level, column, row):
                            "images/pieces/" + piece + ".png"))
 
   button.config(image = img, command = lambda:button_click(piece), \
-                compound = TOP, text = '* ' * int(level), \
+                compound = "top", text = '* ' * int(level), \
                 font=("Arial Bold", 5), pady = 0, padx = 0)
 
   return button, img
@@ -156,7 +156,7 @@ def add_buttons(window):
   row = 0
   column = 0
 
-  for key, value in PIECES.iteritems():
+  for key, value in PIECES.items():
     BUTTONS[key] = add_button(window, button_click, key, value[2], \
                               column, row)
 
@@ -185,13 +185,13 @@ def make_window():
 
   window.title("Dota Auto Chess Pieces Picker " + _VERSION)
 
-  buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
-  buttons_frame.pack(fill = BOTH, expand = True)
+  buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
+  buttons_frame.pack(fill = "both", expand = True)
 
   add_buttons(buttons_frame)
 
-  info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
-  info_frame.pack(fill = BOTH, expand = True)
+  info_frame = Frame(height = 2, bd = 1, relief = "sunken")
+  info_frame.pack(fill = "both", expand = True)
 
 
   color1 = Label(info_frame, bg = _GREEN_COLOR, width = 4, height = 1)
@@ -211,35 +211,35 @@ def make_window():
 
 
   SPECIES_NUMBER_1 = Label(info_frame, font=("Arial Bold", 12))
-  SPECIES_NUMBER_1.grid(column = 1, row = 0, sticky = W, padx = (10, 0))
+  SPECIES_NUMBER_1.grid(column = 1, row = 0, sticky = 'W', padx = (10, 0))
 
   SPECIES_NUMBER_2 = Label(info_frame, font=("Arial Bold", 12))
-  SPECIES_NUMBER_2.grid(column = 1, row = 1, sticky = W, padx = (10, 0))
+  SPECIES_NUMBER_2.grid(column = 1, row = 1, sticky = 'W', padx = (10, 0))
 
   CLASS_NUMBER = Label(info_frame, font=("Arial Bold", 12))
-  CLASS_NUMBER.grid(column = 1, row = 2, sticky = W, padx = (10, 0))
+  CLASS_NUMBER.grid(column = 1, row = 2, sticky = 'W', padx = (10, 0))
 
 
   SPECIES_DESCRIPTION_1 = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_1.grid(column = 2, row = 0, sticky = W, padx = (10, 0))
+                                wraplength=300, anchor="nw", justify="left")
+  SPECIES_DESCRIPTION_1.grid(column = 2, row = 0, sticky = 'W', padx = (10, 0))
 
   SPECIES_DESCRIPTION_2 = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_2.grid(column = 2, row = 1, sticky = W, padx = (10, 0))
+                                wraplength=300, anchor="nw", justify="left")
+  SPECIES_DESCRIPTION_2.grid(column = 2, row = 1, sticky = 'W', padx = (10, 0))
 
   CLASS_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                            wraplength=300, anchor=NW, justify=LEFT)
-  CLASS_DESCRIPTION.grid(column = 2, row = 2, sticky = W, padx = (10, 0))
+                            wraplength=300, anchor="nw", justify="left")
+  CLASS_DESCRIPTION.grid(column = 2, row = 2, sticky = 'W', padx = (10, 0))
 
   both_description = Label(info_frame, text = "Both species and class \
-matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
-    justify=LEFT)
-  both_description.grid(column = 2, row = 3, sticky = W, padx = (10, 0))
+matches", font=("Arial Bold", 12), wraplength=300, anchor="nw", \
+    justify="left")
+  both_description.grid(column = 2, row = 3, sticky = 'W', padx = (10, 0))
 
   SKILL_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                            wraplength=300, anchor=NW, justify=LEFT)
-  SKILL_DESCRIPTION.grid(column = 2, row = 4, sticky = W, padx = (10, 0))
+                            wraplength=300, anchor="nw", justify="left")
+  SKILL_DESCRIPTION.grid(column = 2, row = 4, sticky = 'W', padx = (10, 0))
 
   window.mainloop()
 
