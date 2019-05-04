@@ -3,8 +3,8 @@
 from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
+from .version import VERSION
 
-_VERSION = "1.2"
 _PIECES_FILE = "database/csv/pieces.csv"
 _SPECIES_FILE = "database/csv/species.csv"
 _CLASSES_FILE = "database/csv/classes.csv"
@@ -183,7 +183,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Pieces Picker " + _VERSION)
+  window.title("Dota Auto Chess Pieces Picker " + VERSION)
 
   buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
   buttons_frame.pack(fill = "both", expand = True)

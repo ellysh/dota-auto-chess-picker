@@ -3,8 +3,8 @@
 from tkinter import ttk, Tk, Label, Button
 from csv import reader
 from PIL import ImageTk,Image
+from .version import VERSION
 
-_VERSION = "1.2"
 _PIECES_FILE = "database/csv/pieces.csv"
 _COMBOS_FILE = "database/csv/combos.csv"
 
@@ -185,7 +185,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Strategy Picker " + _VERSION)
+  window.title("Dota Auto Chess Strategy Picker " + VERSION)
 
   notebook = ttk.Notebook(window)
 

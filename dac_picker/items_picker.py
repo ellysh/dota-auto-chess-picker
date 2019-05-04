@@ -3,8 +3,8 @@
 from tkinter import Tk, Label, Button, Frame
 from csv import reader
 from PIL import ImageTk,Image
+from .version import VERSION
 
-_VERSION = "1.2"
 _ITEMS_FILE = "database/csv/items.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
@@ -118,7 +118,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Items Picker " + _VERSION)
+  window.title("Dota Auto Chess Items Picker " + VERSION)
 
   buttons_frame = Frame(height = 2, bd = 1, relief = "sunken")
   buttons_frame.pack(fill = "both", expand = True)
