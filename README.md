@@ -10,47 +10,79 @@ You need two Python 3, Tkinter and Pillow modules to launch the Dota Auto Chess 
 
 ### Windows
 
-These are steps to install Python and required modules on Windows:
+These are steps to install dac-picker on Windows:
 
-1. Download the archive with Dota Auto Chess Picker and extract it:<br/>
-https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
-
-2. Download the Python 3 distribution:<br/>
+1. Download the Python 3 distribution:<br/>
 https://www.python.org/downloads/release/python-373/
 
-3. Install Python 3.
+2. Install Python 3.
 
-4. Install the pip utility with the following command in the command line:<br/>
+3. Install the pip utility with the following command in the command line:<br/>
 `python get-pip.py`
 
-5. Install the `pillow` module:<br/>
-`pip install pillow`
+4. Install Dota Auto Chess Picker:<br/>
+`python -m pip install --user dota2picker`
+
+This is an alternative way to install dac-picker from github repository:
+
+1. Install the `pillow` module:<br/>
+`python -m pip install pillow`
+
+2. Install the `setuptools` module:<br/>
+`python -m pip install setuptools`
+
+3. Download the archive with the dac-picker and extract it:<br/>
+https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
+
+4. Change directory to the `dota-auto-chess-picker` and launch the command:<br/>
+`python setup.py install --user`
+
+In both variants, dac-picker will be installed to the following directory (example for Python 3.6 version):<br/>
+`C:\Users\<username>\AppData\Roaming\Python\Python36\Sripts`
 
 ### Ubuntu
 
-These are steps to install Python and required modules on Linux:
+These are steps to install dac-picker on Linux:
 
-1. Download the archive with Dota Auto Chess Picker and extract it:<br/>
-https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
-
-2. Install the Python 3:<br/>
+1. Install the Python 3:<br/>
 `sudo apt-get install python3`
 
-3. Install the Tkinter module:<br/>
+2. Install the Tkinter module:<br/>
 `sudo apt-get install python3-tk`
 
-4. Install the `pillow` module:<br/>
+3. Install the pip package manager:<br/>
+`sudo apt-get install python3-pip`
+
+4. Install Dota Auto Chess Picker:<br/>
+`pip3 install dota2picker`
+
+Dac-picker will be installed to the `/usr/local/bin/` directory.
+
+This is an alternative way to install dac-picker from github repository:
+
+1. Install the `pillow` module:<br/>
 `sudo apt-get install python3-pil.imagetk`
+
+2. Install the `setuptools` module:<br/>
+`pip install setuptools`
+
+3. Download the archive with the `dota-auto-chess-picker` and extract it:<br/>
+https://github.com/ellysh/dota-auto-chess-picker/archive/master.zip
+
+4. Change directory to the `dac-picker` and launch the command:<br/>
+`python setup.py install --user`
+
+Dac-picker will be installed to the `~/.local/bin` directory.
 
 ## Usage
 
 ### Pieces Picker
 
-The `pieces-picker.py` script shows you all combinations of the pieces depending on their species and classes.
+The `dac-pieces-picker` script shows you all combinations of the pieces depending on their species and classes.
 
 ![Pieces Picker](images/readme/pieces-picker-window.png)
 
-Start the `pieces-picker.py` script and click on the piece icon. The green color highlights all pieces of the same species. If the piece has second species, then corresponding pieces are highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
+Start the `dac-pieces-picker` script and click on the piece icon. The green color highlights all pieces of the same species. If the piece has second species, then corresponding pieces are highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
 
 You will see a brief description of the piece's skill near the red box.
 
@@ -58,11 +90,11 @@ Stars under each piece icon show its cost.
 
 ### Items Picker
 
-The `items-picker.py` script shows you combinations of items.
+The `dac-items-picker` script shows you combinations of items.
 
 ![Items Picker](images/readme/items-picker-window.png)
 
-Start the `items-picker.py` script and click on the item icon. The red color highlights the selected item. You will see a description of this item at the bottom of the window. If the item can be combined in the upgrade, it is marked by the blue color. The green color highlights all components (if they exist) of the selected item. If the upgrade consists of two similar items, the corresponding item icon is highlighted by the yellow color.
+Start the `dac-items-picker` script and click on the item icon. The red color highlights the selected item. You will see a description of this item at the bottom of the window. If the item can be combined in the upgrade, it is marked by the blue color. The green color highlights all components (if they exist) of the selected item. If the upgrade consists of two similar items, the corresponding item icon is highlighted by the yellow color.
 
 Let us consider the screenshot above. The select item is Maelstorm. You can combine it with Hyperstone for getting Mjollnir. So, Mjollnir is marked by a blue color. You can get Maelstorm by the combination of Javelin and Mithril Hammer. Thus, these two items are highlighted by the green color.
 
@@ -70,7 +102,7 @@ Stars under each item icon show its tier. The `U` letter means that this is an u
 
 ### Combo Picker
 
-The `combo-picker.py` script shows you strong combinations of pieces for each phase of the game. Using these combinations you can build your own strategy. This script is recommended for advanced players.
+The `dac-combo-picker` script shows you strong combinations of pieces for each phase of the game. Using these combinations you can build your own strategy. This script is recommended for advanced players.
 
 ![Combo Picker](images/readme/combo-picker-window.png)
 
@@ -80,16 +112,24 @@ When you buy pieces of the specific combo you can press on corresponding icons. 
 
 Also, the green color highlights all pieces with the same species as pieces which you already bought. The same way, blue color highlights all pieces with the same classes.
 
-The combos are defined in the `database/docs/Combos.ods` file. These are steps to add a new combo:
+The combos are defined in the `combos.csv` database file.
 
-1. Open the document.
+This is the path to this file on Linux:<br/>
+`~/.local/share/dac_picker/combos.csv`
+
+This is the path to this file on Windows:<br/>
+`C:\User\<username>\AppData\Local\dac_picker\combos.csv`
+
+These are steps to add a new combo:
+
+1. Open the CSV document.
 2. Add priority of your combo in the first column.
 3. Add game phase of the combo in the second column.
 4. Add the name of combo in the third column.
-5. Add comma separated pieces of your combo in the fourth column. Use pieces names from the `PIECES` sheet of the `database/docs/Database.ods` document.
-6. Use the `database/ods2csv.sh` script for generating all CSV documents. If you do not have Bash, you can manually save the `Combos.ods` document to the `database/csv` directory with the `combos.csv` name. Use the `;` as a separator for CSV document.
+5. Add comma separated pieces of your combo in the fourth column. Use pieces names from the `pieces.csv` database file.
+6. Save the modified `combos.csv` file.
 
-Now the `combo-picker.py` script shows your combo.
+Now the `dac-combo-picker` script shows your combo.
 
 ## Contacts
 
