@@ -2,13 +2,13 @@
 import os
 from pathlib import Path
 from setuptools import setup, find_packages
-from dac-picker.version import VERSION
+from dac_picker.version import VERSION
 
-PACKAGE_DIR = Path(os.path.join(os.path.dirname(__file__), 'dota2picker'))
+PACKAGE_DIR = Path(os.path.join(os.path.dirname(__file__), 'dac_picker'))
 
 if __name__ == '__main__':
     setup(
-        name='dac-picker',
+        name='dac_picker',
         version=VERSION,
         packages=find_packages(),
         include_package_data=True,
@@ -24,9 +24,9 @@ if __name__ == '__main__':
         keywords=['dota2', 'counter-pick'],
         entry_points={
             'console_scripts': [
-                'dac-combo-picker=dac-picker.combo-picker:main',
-                'dac-items-picker=dac-picker.items-picker:main',
-                'dac-pieces-picker=dac-picker.pieces-picker:main',
+                'dac-combo-picker=dac_picker.combo_picker:main',
+                'dac-items-picker=dac_picker.items_picker:main',
+                'dac-pieces-picker=dac_picker.pieces_picker:main',
             ],
         },
         classifiers=[

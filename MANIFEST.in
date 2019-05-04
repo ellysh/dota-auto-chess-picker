@@ -1,2 +1,2 @@
-include dac-picker/database/**/*
-include dac-picker/images/**/*
+include dac_picker/database/**/*
+include dac_picker/images/**/*
