@@ -1,3 +1,6 @@
+* version 1.3.2
+  - Bugfix.
+
 * version 1.3.1
   - Bugfix.
 
