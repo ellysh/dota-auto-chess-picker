@@ -51,16 +51,16 @@ def highlight_similarity(piece_name, index, first_color, second_color):
         if key != piece_name:
             color = _DEFAULT_COLOR
 
-        if similarity_list[0] in check_similarity_list:
-            color = first_color
-        elif 1 < len(similarity_list) \
-             and similarity_list[1] in check_similarity_list:
-            color = second_color
+            if similarity_list[0] in check_similarity_list:
+                color = first_color
+            elif 1 < len(similarity_list) \
+                 and similarity_list[1] in check_similarity_list:
+                color = second_color
 
-        if value[0].cget("bg") == _DEFAULT_COLOR:
-            value[0].config(bg = color)
-        elif color != _DEFAULT_COLOR:
-            value[0].config(bg = _PURPLE_COLOR)
+            if value[0].cget("bg") == _DEFAULT_COLOR:
+                value[0].config(bg = color)
+            elif color != _DEFAULT_COLOR:
+                value[0].config(bg = _PURPLE_COLOR)
 
 
 def highlight_species(piece_name):
