@@ -27,10 +27,8 @@ def copy_resource_file(resource):
 class Csv(object):
     @staticmethod
     def load(file, max_column):
-        copy_resource_file(resource_filename("dac_picker", file))
-
         result = {}
-        with open(get_filename(file)) as csv_file:
+        with open(resource_filename("dac_picker", file)) as csv_file:
             csv_reader = reader(csv_file, delimiter=';')
             # Skip the columns headers
             next(csv_reader)
