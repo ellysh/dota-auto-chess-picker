@@ -30,7 +30,7 @@ if __name__ == '__main__':
             ],
         },
         classifiers=[
-            'Development Status :: 3 - Alpha',
+            'Development Status :: 4 - Beta',
 
             'Intended Audience :: End Users/Desktop',
             'Topic :: Games/Entertainment :: Real Time Strategy',
