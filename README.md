@@ -122,7 +122,7 @@ This is the path to this file on Windows:<br/>
 
 These are steps to add a new combo:
 
-1. Open the CSV document.
+1. Open the CSV document. You can open this file in any text editor or MS/Libre Office application.
 2. Add priority of your combo in the first column.
 3. Add game phase of the combo in the second column.
 4. Add the name of combo in the third column.
