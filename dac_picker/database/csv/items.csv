@@ -12,10 +12,12 @@ Tier;Item;Bonus;Components
 1;"Regen Ring";"+5 HP Regeneration";
 1;"Stout Shield";"Block 10 damage";
 1;"Void Stone";"+50% Mana Regeneration on attacks";
-1;"Blink Dagger";" ";
+1;"Blink Dagger";"Teleports to the foremost vacant square in the current column when battle starts
++25% mana gained from taking damage";
 2;"Broad Sword";"+20 Attack Damage";
 2;Javelin;"+15 Attack Damage";
 2;"Mithril Hammer";"+15 Attack Damage";
+2;"Ogre Axe";"+15% Max HP";
 2;"Plate Mail";"+10 Armor";
 2;"Vitality Booster";"+250 Max HP";
 2;"Wizardry Staff";"-20% Magic Resistance for target";
@@ -26,7 +28,7 @@ Tier;Item;Bonus;Components
 4;"Mystic Staff";"-20% Magic Resistance on target
 +25% Mana Regeneration on damage taken";
 4;Reaver;"+500 Max HP
-+10 HP Regeneration";
++15% Max HP";
 4;"Sacred Relic";"+50 Attack Damage";
 U;"Assault Cuirass";"Aura: +10 Armor, +10 Attack Speed for adjacent allies
 Aura: -10 Armor, -10 Attack Speed for adjacent enemies";"Hyperstone, Chain Mail, Plate Mail "
@@ -35,6 +37,9 @@ U;"Battle Fury";"+30 Attack damage, melee attacks deal 50% cleave damage in a ra
 +100% mana gained by dealing damage ";"Perseverance, Demon Edge"
 U;"Blade Mail";"+5 Armor, +10 Attack Damage
 Duplicates 100% of received damage as pure damage back to the attacking unit";"Broad Sword, Chain Mail"
+U;"Black King Bar";"+15 Attack damage
++15% Max HP
+Grants spell immunity and 100% magic resistance for 8 sec";"Mithril Hammer, Ogre Axe "
 U;Crystalys;"+15 Attack Damage
 15% chance to deal 1.5x damage";"Attack Blade, Broad Sword"
 U;Daedalus;"+40 Attack Damage
@@ -82,6 +87,7 @@ U;"Shiva's Guard";"+20 Armor
 +5 Mana Regeneration
 -50 Attack speed for target ";"Mystic Staff, Plate Mail"
 U;"Tarrasque Heart";"+1000 Max HP
++30% Max HP
 +1% HP Regeneration every 2s ";"Reaver, Vitality Booster, Health Ring"
 U;Vanguard;"+250 Max HP
 +10HP Regeneration
