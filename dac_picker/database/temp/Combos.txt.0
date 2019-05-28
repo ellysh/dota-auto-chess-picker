@@ -5,7 +5,7 @@ Priority;"Game Phase";Name;Line;Pieces
 2;Earlygame;Warrior;Front;"Tiny, Juggernaut, Axe, Tusk, Mars"
 2;Earlygame;Knight;Mixed;"Bat Rider, Luna, Chaos Knight"
 3;Earlygame;Mage;Mixed;"Razor, Ogre Magi, Puck"
-3;Earlygame;"Undead + Hunter";Mixed;"Abaddon, Drow Ranger, Beast Master"
+3;Earlygame;"Undead + Hunter";Mixed;"Abaddon, Drow Ranger, Beast Master, Lich"
 5;Earlygame;Assasin;Back;"Bounty Hunter, Pain Queen, Morphling"
 4;Earlygame;Elf;Mixed;"Natures Prophet, Puck, Luna"
 4;Earlygame;Troll;Back;"Bat Rider, Shadow Shaman, Witch Doctor"
@@ -32,3 +32,4 @@ Priority;"Game Phase";Name;Line;Pieces
 2;Lategame;Orc;Back;Disruptor
 1;Lategame;Naga;Front;"Tide Hunter, Medusa"
 1;Lategame;Mage;Back;Zeus
+2;Lategame;Warrior;Front;Sven
