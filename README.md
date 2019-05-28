@@ -17,7 +17,7 @@ https://www.python.org/downloads/release/python-373/
 
 2. Install Python 3.
 
-3. Install the pip utility with the following command in the command line:<br/>
+3. Install the pip utility with the following command in the [command prompt](https://www.computerhope.com/issues/chusedos.htm):<br/>
 `python get-pip.py`
 
 4. Install Dota Auto Chess Picker:<br/>
