@@ -80,7 +80,7 @@ Dac-picker will be installed to the `~/.local/bin` directory.
 
 The `dac-pieces-picker` script shows you all combinations of the pieces depending on their species and classes.
 
-![Pieces Picker](images/readme/pieces-picker-window.png)
+![Pieces Picker](dac_picker/images/readme/pieces-picker-window.png)
 
 Start the `dac-pieces-picker` script and click on the piece icon. The green color highlights all pieces of the same species. If the piece has second species, then corresponding pieces are highlighted by the yellow color. Blue color highlights the pieces with the same class. Purple color matches the pieces with the same species and class.
 
@@ -92,7 +92,7 @@ Stars under each piece icon show its cost.
 
 The `dac-items-picker` script shows you combinations of items.
 
-![Items Picker](images/readme/items-picker-window.png)
+![Items Picker](dac_picker/images/readme/items-picker-window.png)
 
 Start the `dac-items-picker` script and click on the item icon. The red color highlights the selected item. You will see a description of this item at the bottom of the window. If the item can be combined in the upgrade, it is marked by the blue color. The green color highlights all components (if they exist) of the selected item. If the upgrade consists of two similar items, the corresponding item icon is highlighted by the yellow color.
 
@@ -104,7 +104,7 @@ Stars under each item icon show its tier. The `U` letter means that this is an u
 
 The `dac-combo-picker` script shows you strong combinations of pieces for each phase of the game. Using these combinations you can build your own strategy. This script is recommended for advanced players.
 
-![Combo Picker](images/readme/combo-picker-window.png)
+![Combo Picker](dac_picker/images/readme/combo-picker-window.png)
 
 You see three tabs when starting the script: "Earlygame", "Midgame" and "Lategame". On each tab, there are lines with recommended combos. There are three columns: name of the combo, the preferred line for pieces in this combo ("Front", "Back", "Mixed") and icons of pieces in this combo.
 
