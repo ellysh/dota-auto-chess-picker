@@ -1,4 +1,4 @@
-# Dota Auto Chess Picker 1.3.5 version
+# Dota Auto Chess Picker 1.3.6 version
 
 Dota Auto Chess Picker is a utility for showing combinations of pieces and items for the [Dota Auto Chess](https://steamcommunity.com/sharedfiles/filedetails/?id=1613886175) custom game. You can use the picker during the game (as a hint) or for planning your strategies.
 

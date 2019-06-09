@@ -1,3 +1,6 @@
+ version 1.3.6
+  - Content fixes.
+
  version 1.3.5
   - Content fixes.
 
