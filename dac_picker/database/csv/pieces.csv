@@ -57,5 +57,6 @@ Tusk;Beast;Warrior;1;"nuke, unit, physical"
 Venomancer;Beast;Warlock;3;summon
 Viper;Dragon;Assassin;3;"dot, unit, magical / debuff, unit, attack speed"
 "Wind Ranger";Elf;Hunter;3;"nuke, line, magical"
+"Winter Wyvern";Dragon;Mage;1;"buff, unit, immune / heal, unit"
 "Witch Doctor";Troll;Warlock;2;"nuke, chain, magical / stun, area"
 Zeus;God;Mage;5;"nuke, unit, magical / nuke, courier, magical"
